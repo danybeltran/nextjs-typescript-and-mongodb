@@ -16,7 +16,7 @@ export default async function getPosts(req: NextApiRequest, res: NextApiResponse
             res.status(500).send("error")
         }
     } else {
-        res.status(405).json({ messagge: "Method not allowedm" })
+        res.status(405).json({ messagge: "Method not allowed" })
     }
 
 }
