@@ -17,7 +17,7 @@ Object.keys(colors).map((color) => {
 });
  */
 module.exports = {
-  purge: ["./pages/**/*.js", "./components/**/*.js"],
+  purge: ["./pages/**/*.js", "./src/components/**/*.js"],
   darkMode: false,
   variants: {
     backgroundColor: ["responsive", "hover", "focus", "active"],
