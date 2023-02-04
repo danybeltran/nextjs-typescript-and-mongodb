@@ -1,23 +1,5 @@
-/* const colors = {
-  dye: "212, 72%,",
-  prussian: "215, 66%,",
-  oxford: "213, 72%,",
-  cadet: "209, 32%,",
-  mint: "111, 24%,",
-};
-
-var theme = {};
-Object.keys(colors).map((color) => {
-  theme[color] = {};
-  for (let colorVariant = 1; colorVariant < 10; colorVariant++) {
-    theme[color][colorVariant * 100] = "hsl(".concat(
-      colors[color].concat(100 - colorVariant * 10, "%)")
-    );
-  }
-});
- */
 module.exports = {
-  purge: ["./pages/**/*.js", "./src/components/**/*.js"],
+  purge: ["./app/**/*.tsx", "./components/**/*.tsx"],
   darkMode: false,
   variants: {
     backgroundColor: ["responsive", "hover", "focus", "active"],
@@ -27,4 +9,4 @@ module.exports = {
     align: ["responsive", "hover", "focus", "active"],
   },
   plugins: [],
-};
+}

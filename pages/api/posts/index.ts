@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Post } from "src/Models/index"
+import { Post } from "src/models/index"
 import { connectToDatabase } from "src/utils"
 
 export default async function getPosts(req: NextApiRequest, res: NextApiResponse) {

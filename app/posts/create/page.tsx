@@ -1,19 +1,22 @@
-import { FormEvent, useState } from "react";
-import Header from "src/components/Header";
-import Input from "src/components/Input";
-import Router from "next/router";
+"use client"
+import { FormEvent, useState } from "react"
+import Header from "components/Header"
+import Input from "components/Input"
+import { useRouter } from "next/navigation"
 
-export default function create() {
+export default function Create() {
+  const router = useRouter()
+
   const [post, setPost] = useState({
     title: "",
     content: "",
-  });
+  })
 
   const updatePost = (e) => {
-    setPost({ ...post, [e.target.name]: e.target.value });
-  };
+    setPost({ ...post, [e.target.name]: e.target.value })
+  }
 
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState(false)
 
   async function sendPost(data) {
     const saved = await fetch(window.location.origin + "/api/posts/create", {
@@ -22,19 +25,19 @@ export default function create() {
         ...data,
         date: new Date(),
       }),
-    });
+    })
   }
 
   function handlePostDelivery(e: FormEvent) {
-    e.preventDefault();
+    e.preventDefault()
     sendPost(post)
       .then((saved) => {
-        Router.push("/posts");
-        setSent(typeof saved !== "undefined");
+        router.push("/posts")
+        setSent(typeof saved !== "undefined")
       })
       .catch((err) => {
-        console.log(err);
-      });
+        console.log(err)
+      })
   }
 
   return (
@@ -67,5 +70,5 @@ export default function create() {
         </div>
       </form>
     </div>
-  );
+  )
 }
