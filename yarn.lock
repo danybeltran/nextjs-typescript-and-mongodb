@@ -962,6 +962,11 @@ browserslist@^4.21.4:
     node-releases "^2.0.8"
     update-browserslist-db "^1.0.10"
 
+bs-icon@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/bs-icon/-/bs-icon-0.0.3.tgz#e03aa4f733aa05a4ca8655493ac3abd88375e9b9"
+  integrity sha512-YhspQwZbhqv/+VVozK1rYATOAD0pHQxrS4wYtHrUR1C7tRaX+5TNsyN2RtOwvChAkicszfCgzuBjrvvrYFs+4Q==
+
 bson@^4.7.0:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/bson/-/bson-4.7.2.tgz#320f4ad0eaf5312dd9b45dc369cc48945e2a5f2e"
@@ -1217,6 +1222,18 @@ micromatch@^4.0.4, micromatch@^4.0.5:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
+mime-db@1.52.0:
+  version "1.52.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.52.0.tgz#bbabcdc02859f4987301c856e3387ce5ec43bf70"
+  integrity sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==
+
+mime-types@^2.1.35:
+  version "2.1.35"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.35.tgz#381a871b62a734450660ae3deee44813f70d959a"
+  integrity sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==
+  dependencies:
+    mime-db "1.52.0"
+
 minimist@^1.2.6:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
@@ -1281,6 +1298,13 @@ nanoid@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
+
+next-api-validation@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/next-api-validation/-/next-api-validation-1.0.5.tgz#4c94562ed3c4d0427818a9e5e1841766ca5ee108"
+  integrity sha512-nCziiNrL0+dCZwIK8C+82OzOfyMj/bD1fmpiMoRft65u6uxBDD856zA552h3EBSlkbX4KeD6/Fzd5ElR83LvaQ==
+  dependencies:
+    mime-types "^2.1.35"
 
 next@^13.1.6:
   version "13.1.6"
@@ -1431,6 +1455,11 @@ react-dom@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-kuh@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-kuh/-/react-kuh-0.0.8.tgz#efc188ef5fa75dbead484b8085f60cf76d1e8993"
+  integrity sha512-AfR/AyAjBBB5u62euAhudmzY+cZ+40AcIScNZnDAMB2rMlScuUUp1outN5MHMWZIhDh3twF9JccUZf0zoTxVJw==
 
 react@^18.2.0:
   version "18.2.0"
