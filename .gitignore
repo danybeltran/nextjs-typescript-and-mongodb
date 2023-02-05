@@ -4,10 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-
 # testing
 /coverage
-
+next-env.d.ts
 # next.js
 /.next/
 /out/
@@ -17,6 +16,7 @@
 
 # misc
 .DS_Store
+.vscode
 *.pem
 
 # debug
