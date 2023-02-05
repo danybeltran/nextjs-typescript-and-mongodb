@@ -1,15 +1,19 @@
-import "./globals.css"
+import { FetchConfig } from 'http-react'
+import './globals.css'
+import 'bs-icon/icons.css'
 
 function MainLayout({ children }) {
   return (
-    <html>
-      <head>
-        <title>Nextjs</title>
-      </head>
-      <body>
-        <div className="p-2 h-screen">{children}</div>
-      </body>
-    </html>
+    <FetchConfig baseUrl='/api'>
+      <html>
+        <head>
+          <title>Nextjs</title>
+        </head>
+        <body>
+          <div className='p-8'>{children}</div>
+        </body>
+      </html>
+    </FetchConfig>
   )
 }
 

@@ -1,59 +1,83 @@
-"use client"
-import Link from "next/link"
-import { IPost } from "src/models/Post"
-import { useEffect, useState } from "react"
-import Header from "components/Header"
+'use client'
+import Link from 'next/link'
+import useFetch, { revalidate } from 'http-react'
+import Icon from 'bs-icon'
 
-export default function Usuarios() {
-  const [posts, setPosts] = useState<IPost[]>([])
-  useEffect(() => {
-    const asyncGetPosts = async () => {
-      const { origin } = window.location
-      const data = await fetch(origin + "/api/posts")
-      const posts = await data.json()
-      return posts
-    }
-    if (window) {
-      asyncGetPosts()
-        .then((posts) => {
-          setPosts(posts)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
-  }, [])
+import { IPost } from 'src/models/Post'
+import Header from 'components/Header'
 
-  const mappedPosts = posts.reverse().map((post, i) => (
+function Post(props) {
+  const { reFetch } = useFetch('/posts', {
+    auto: false,
+    id: props._id,
+    method: 'DELETE',
+    query: {
+      id: props._id
+    },
+    onResolve() {
+      revalidate('GET /posts')
+    }
+  })
+
+  return (
     <div
       style={{
-        transition: "0.12s",
+        transition: '0.12s'
       }}
-      className="break-words p-4 rounded-md text-sm w-full sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/6 border-2 hover:bg-gray-100 m-1 cursor-pointer"
-      key={Math.random()}
+      className='p-4 relative break-words rounded-md text-sm border-2 hover:bg-gray-100 m-1'
+      key={`post-${props._id}`}
     >
-      <b className="my-2">{post.title}</b>
+      <button
+        className='font-semibold absolute top-1 right-2 cursor-pointer'
+        onClick={() => {
+          const confirmation = confirm('Do you want to remove this post?')
+          if (confirmation) {
+            reFetch()
+          }
+        }}
+      >
+        <Icon name='trash' />
+      </button>
+      <b className='my-2'>{props.title}</b>
       <br />
-      <p className="my-4">{post.content}</p>
+      <p className='my-4'>{props.content}</p>
     </div>
+  )
+}
+
+export default function Posts() {
+  const { data, loadingFirst, error } = useFetch<IPost[]>('/posts', {
+    default: []
+  })
+
+  if (loadingFirst)
+    return <p className='text-xl font-semibold'>Loading posts...</p>
+
+  if (error)
+    return <p className='text-xl text-red-400'>Failed to fetch posts</p>
+
+  const mappedPosts = data.map(post => (
+    <Post {...post} key={`post-${post._id}`} />
   ))
 
   return (
     <div>
-      <Header>Total posts: {posts.length}</Header>
-      <div className="flex space-x-4">
-        <Link href="/">
-          <div className="bg-red-400 inline-block px-2 py-1 text-white cursor-pointer">
-            Back
-          </div>
+      <Header>Your posts ({data.length})</Header>
+      <div className='flex space-x-4'>
+        <Link
+          href='/'
+          className='bg-red-400 inline-block px-2 rounded-md py-1 text-white cursor-pointer'
+        >
+          <Icon name='arrow-left' /> Back
         </Link>
-        <Link href="/posts/create">
-          <div className="bg-blue-400 inline-block px-2 py-1 text-white cursor-pointer">
-            Add one
-          </div>
+        <Link
+          href='/posts/create'
+          className='bg-blue-400 inline-block px-2 rounded-md py-1 text-white cursor-pointer'
+        >
+          Add one post <Icon name='plus' />
         </Link>
       </div>
-      <div className="py-4 flex flex-wrap overflow-y-scroll h-96 md:h-72 my-4 border-4 rounded-md">
+      <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 rounded-md'>
         {mappedPosts}
       </div>
     </div>
