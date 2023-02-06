@@ -1,13 +1,12 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import Validate from 'next-api-validation'
-import { Post } from 'src/models/index'
-import { IPost } from 'src/models/Post'
+import { Post, IPost } from 'src/models'
 import { connectToDatabase } from 'src/utils'
+
+connectToDatabase()
 
 const postsHandler = Validate({
   async get(req, res) {
     try {
-      await connectToDatabase()
       const posts = await Post.find()
       res.json(posts.reverse())
     } catch (err) {
@@ -17,7 +16,6 @@ const postsHandler = Validate({
   },
   async post(req, res) {
     try {
-      await connectToDatabase()
       const body: IPost = JSON.parse(req.body)
       const newPost = new Post(body)
       const saved = await newPost.save()

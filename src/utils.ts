@@ -1,15 +1,20 @@
-import { connect } from "mongoose"
+import { connect, connection } from 'mongoose'
 const {
   // Attempts to connect to MongoDB and then tries to connect locally:)
-  MONGO_URI = "mongodb://localhost:27017/next_test",
+  MONGO_URI = 'mongodb://localhost:27017/next_test'
 } = process.env
-
-console.log(MONGO_URI)
 
 const options: any = {
   useUnifiedTopology: true,
 
-  useNewUrlParser: true,
+  useNewUrlParser: true
 }
 
-export const connectToDatabase = () => connect(MONGO_URI, options)
+const invalidStates = [0, 3]
+
+export const connectToDatabase = async () => {
+  if (invalidStates.indexOf(connection.readyState)) {
+    console.log('Connecting to ', MONGO_URI)
+    connect(MONGO_URI, options)
+  }
+}

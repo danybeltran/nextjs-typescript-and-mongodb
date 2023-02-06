@@ -1,1 +1,1 @@
-export { Post } from "./Post"
+export { Post, type IPost } from './Post'
