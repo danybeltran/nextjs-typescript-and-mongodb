@@ -5,7 +5,7 @@ import 'bs-icon/icons.css'
 function MainLayout({ children }) {
   return (
     <FetchConfig baseUrl='/api'>
-      <html>
+      <html data-theme="corporate">
         <head>
           <title>Nextjs</title>
         </head>

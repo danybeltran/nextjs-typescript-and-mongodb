@@ -16,7 +16,7 @@ const postsHandler = Validate({
   },
   async post(req, res) {
     try {
-      const body: IPost = JSON.parse(req.body)
+      const body: IPost = req.body
       const newPost = new Post(body)
       const saved = await newPost.save()
       res.send(saved)

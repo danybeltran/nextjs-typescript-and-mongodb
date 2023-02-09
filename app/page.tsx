@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Header>Next.js with TypeScript and MongoDB</Header>
-      <Link href='/posts' className='text-blue-600 underline'>
+      <Link href='/posts' className='btn btn-sm btn-ghost underline'>
         Posts
       </Link>
     </div>

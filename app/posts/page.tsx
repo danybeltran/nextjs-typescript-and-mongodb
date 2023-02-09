@@ -24,11 +24,11 @@ function Post(props) {
       style={{
         transition: '0.12s'
       }}
-      className='p-4 relative break-words rounded-md text-sm border-2 hover:bg-gray-100 m-1'
+      className='card p-4 relative break-words rounded-md text-sm shadow m-1'
       key={`post-${props._id}`}
     >
       <button
-        className='font-semibold absolute top-1 right-2 cursor-pointer'
+        className='btn btn-sm font-semibold absolute top-1 right-2 cursor-pointer'
         onClick={() => {
           const confirmation = confirm('Do you want to remove this post?')
           if (confirmation) {
@@ -64,16 +64,10 @@ export default function Posts() {
     <div>
       <Header>Your posts ({data.length})</Header>
       <div className='flex space-x-4'>
-        <Link
-          href='/'
-          className='bg-red-400 inline-block px-2 rounded-md py-1 text-white cursor-pointer'
-        >
+        <Link href='/' className='btn gap-x-2 btn-sm btn-ghost'>
           <Icon name='arrow-left' /> Back
         </Link>
-        <Link
-          href='/posts/create'
-          className='bg-blue-400 inline-block px-2 rounded-md py-1 text-white cursor-pointer'
-        >
+        <Link href='/posts/create' className='btn gap-x-2 btn-sm btn-primary'>
           Add one post <Icon name='plus' />
         </Link>
       </div>

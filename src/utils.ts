@@ -10,10 +10,8 @@ const options: any = {
   useNewUrlParser: true
 }
 
-const invalidStates = [0, 3]
-
 export const connectToDatabase = async () => {
-  if (invalidStates.indexOf(connection.readyState)) {
+  if (!connection.readyState) {
     console.log('Connecting to ', MONGO_URI)
     connect(MONGO_URI, options)
   }

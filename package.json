@@ -10,7 +10,8 @@
   "dependencies": {
     "autoprefixer": "^10.4.13",
     "bs-icon": "^0.0.3",
-    "http-react": "^3.0.1",
+    "daisyui": "^2.50.0",
+    "http-react": "^3.0.5",
     "mongoose": "^6.9.0",
     "next": "^13.1.6",
     "next-api-validation": "^1.0.5",
