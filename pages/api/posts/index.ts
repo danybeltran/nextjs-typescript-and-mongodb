@@ -1,5 +1,5 @@
 import Validate from 'next-api-validation'
-import { Post, IPost } from 'src/models'
+import { Post, IPost } from 'src/Models'
 import { connectToDatabase } from 'src/utils'
 
 connectToDatabase()

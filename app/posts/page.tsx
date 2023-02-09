@@ -3,7 +3,7 @@ import Link from 'next/link'
 import useFetch, { revalidate } from 'http-react'
 import Icon from 'bs-icon'
 
-import { IPost } from 'src/models/Post'
+import { IPost } from 'src/Models/Post'
 import Header from 'components/Header'
 
 function Post(props) {
