@@ -1,6 +1,6 @@
 ### Next.js with TypeScript, MongoDB, HttpReact, TailwindCSS and DaisyUI
 
-A Next.js app with a serverless backend using MongoDB. A template that can be uses to quickly bootstrap new Next.js project. It also has Tailwind configured with Postcss and DaisyUI
+A Next.js app with a serverless backend using MongoDB. A template that can be used to quickly bootstrap new Next.js project. It also has Tailwind configured with Postcss and DaisyUI
 
 Clone/(Download as zip) this repo, then:
 
