@@ -31,4 +31,4 @@ I created three of the libraries used in this project:
 [`next-api-validation`](https://www.npmjs.com/package/next-api-validation): Validate HTTP requests inside Next.js API endpoints
 
 
-[Live example](nextjs-typescript-and-mongodb-psi.vercel.app)
+[Live preview](https://nextjs-typescript-and-mongodb-psi.vercel.app)
