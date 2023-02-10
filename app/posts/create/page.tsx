@@ -25,6 +25,7 @@ export default function Create() {
     date: newPostDate
   }
 
+  // This is not automatic, this is a mutation
   const { reFetch: savePost } = useFetch('/posts', {
     auto: false,
     method: 'POST',
