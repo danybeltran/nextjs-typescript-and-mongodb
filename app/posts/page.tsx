@@ -24,11 +24,11 @@ function Post(props) {
       style={{
         transition: '0.12s'
       }}
-      className='card p-4 relative break-words rounded-md text-sm shadow m-1'
+      className='card p-4 relative break-words rounded-lg hover:border-neutral-400 card-bordered m-4'
       key={`post-${props._id}`}
     >
       <button
-        className='btn btn-sm font-semibold absolute top-1 right-2 cursor-pointer'
+        className='btn btn-ghost font-semibold absolute top-1 right-1 cursor-pointer'
         onClick={() => {
           const confirmation = confirm('Do you want to remove this post?')
           if (confirmation) {
@@ -36,7 +36,7 @@ function Post(props) {
           }
         }}
       >
-        <Icon name='trash' />
+        <Icon name='trash' className='text-xl' />
       </button>
       <b className='my-2'>{props.title}</b>
       <br />
@@ -51,10 +51,10 @@ export default function Posts() {
   })
 
   if (loadingFirst)
-    return <p className='text-xl font-semibold'>Loading posts...</p>
+    return <p className='text-2xl font-semibold py-4'>Loading posts...</p>
 
   if (error)
-    return <p className='text-xl text-red-400'>Failed to fetch posts</p>
+    return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
 
   const mappedPosts = data.map(post => (
     <Post {...post} key={`post-${post._id}`} />
@@ -64,11 +64,11 @@ export default function Posts() {
     <div>
       <Header>Your posts ({data.length})</Header>
       <div className='flex space-x-4'>
-        <Link href='/' className='btn gap-x-2 btn-sm btn-ghost'>
-          <Icon name='arrow-left' /> Back
+        <Link href='/' className='btn gap-x-2 btn-ghost'>
+          <Icon name='arrow-left' className='text-xl' /> Back
         </Link>
-        <Link href='/posts/create' className='btn gap-x-2 btn-sm btn-primary'>
-          Add one post <Icon name='plus' />
+        <Link href='/posts/create' className='btn gap-x-2'>
+          Add one post <Icon name='plus' className='text-xl' />
         </Link>
       </div>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 rounded-md'>

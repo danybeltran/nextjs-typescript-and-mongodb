@@ -8,24 +8,24 @@
     "start": "next start"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.13",
-    "bs-icon": "^0.0.3",
-    "daisyui": "^2.50.0",
+    "autoprefixer": "^10.4.14",
+    "bs-icon": "^0.0.5",
+    "daisyui": "^2.51.4",
     "http-react": "^3.0.5",
-    "mongoose": "^6.9.0",
-    "next": "^13.1.6",
+    "mongoose": "^7.0.2",
+    "next": "^13.2.4",
     "next-api-validation": "^1.0.5",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-kuh": "^0.0.8",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
     "@types/mongoose": "^5.11.97",
-    "@types/node": "^18.11.19",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "typescript": "^4.9.5"
+    "@types/node": "^18.15.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "typescript": "^5.0.2"
   }
 }

@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = (props: InputProps) => {
   return (
     <input
       type="text"
-      className="input input-sm input-bordered w-full"
+      className="input input-bordered w-full"
       value={value}
       placeholder={placeholder}
       name={name}

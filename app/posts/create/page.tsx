@@ -37,11 +37,11 @@ export default function Create() {
 
   return (
     <div>
-      <Link href='/posts' className='btn gap-x-2 btn-sm btn-ghost'>
-        <Icon name='arrow-left' /> Back
+      <Link href='/posts' className='btn gap-x-2 btn-ghost'>
+        <Icon name='arrow-left' className='text-xl' /> Back
       </Link>
       <Header>Add post</Header>
-      <div className='flex flex-wrap w-full md:w-64 items-center justify-center space-y-2'>
+      <div className='flex flex-wrap w-full md:w-96 items-center justify-center space-y-2'>
         <div className='w-full'>
           <Input
             value={post.title}
@@ -57,7 +57,7 @@ export default function Create() {
         <div className='w-full'>
           <textarea
             placeholder='Content'
-            className='textarea textarea-bordered h-32 resize-none input-sm w-full'
+            className='textarea textarea-bordered h-32 resize-none w-full'
             name='content'
             onChange={e =>
               setPost.write({
@@ -67,9 +67,9 @@ export default function Create() {
           ></textarea>
         </div>
         <div className='w-full text-center'>
-          <button onClick={savePost} className='btn gap-x-2 btn-sm btn-primary'>
+          <button onClick={savePost} className='btn gap-x-2'>
             <span>Save</span>
-            <Icon name='disc' />
+            <Icon name='disc' className='text-xl' />
           </button>
         </div>
       </div>
