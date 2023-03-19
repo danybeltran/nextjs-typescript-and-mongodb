@@ -6,10 +6,20 @@ import Icon from 'bs-icon'
 import { IPost } from 'src/Models/Post'
 import Header from 'components/Header'
 
+function confirmPostDelete(id) {
+  const confirmation = confirm('Do you want to remove this post?')
+  if (confirmation) {
+    revalidate(id)
+  }
+}
+
 function Post(props) {
-  const { reFetch } = useFetch('/posts', {
-    auto: false,
-    id: props._id,
+  const fetchID = {
+    post: props
+  }
+
+  useFetch('/posts', {
+    id: fetchID,
     method: 'DELETE',
     query: {
       id: props._id
@@ -29,12 +39,7 @@ function Post(props) {
     >
       <button
         className='btn btn-ghost font-semibold absolute top-1 right-1 cursor-pointer'
-        onClick={() => {
-          const confirmation = confirm('Do you want to remove this post?')
-          if (confirmation) {
-            reFetch()
-          }
-        }}
+        onClick={() => confirmPostDelete(fetchID)}
       >
         <Icon name='trash' className='text-xl' />
       </button>

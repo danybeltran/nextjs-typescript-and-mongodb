@@ -5,10 +5,14 @@ import { useObject } from 'react-kuh'
 
 import Link from 'next/link'
 import Icon from 'bs-icon'
-import useFetch, { serialize } from 'http-react'
+import useFetch, { revalidate } from 'http-react'
 
 import Header from 'components/Header'
 import Input from 'components/Input'
+
+function savePost() {
+  revalidate('POST /posts')
+}
 
 export default function Create() {
   const router = useRouter()
@@ -26,8 +30,7 @@ export default function Create() {
   }
 
   // This is not automatic, this is a mutation
-  const { reFetch: savePost } = useFetch('/posts', {
-    auto: false,
+  useFetch('/posts', {
     method: 'POST',
     body: { ...newPost, _id: undefined },
     onResolve() {
