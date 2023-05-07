@@ -1,6 +1,5 @@
 import { FetchConfig } from 'http-react'
 import './globals.css'
-import 'bs-icon/icons.css'
 import Link from 'next/link'
 import Icon from 'bs-icon'
 

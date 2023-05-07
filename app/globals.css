@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800;900&display=swap');
+@import "../node_modules/bs-icon/icons.css";
 
 @tailwind base;
 @tailwind components;

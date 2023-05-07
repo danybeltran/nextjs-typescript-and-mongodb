@@ -6,14 +6,14 @@ import Icon from 'bs-icon'
 import { IPost } from 'src/Models/Post'
 import Header from 'components/Header'
 
-function confirmPostDelete(id) {
+function confirmPostDelete(id: any) {
   const confirmation = confirm('Do you want to remove this post?')
   if (confirmation) {
     revalidate(id)
   }
 }
 
-function Post(props) {
+function Post(props: Partial<IPost>) {
   const fetchID = {
     post: props
   }
@@ -61,10 +61,6 @@ export default function Posts() {
   if (error)
     return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
 
-  const mappedPosts = data.map(post => (
-    <Post {...post} key={`post-${post._id}`} />
-  ))
-
   return (
     <div>
       <Header>Your posts ({data.length})</Header>
@@ -77,7 +73,9 @@ export default function Posts() {
         </Link>
       </div>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 rounded-md'>
-        {mappedPosts}
+        {data.map(post => (
+          <Post {...post} key={`post-${post._id}`} />
+        ))}
       </div>
     </div>
   )
