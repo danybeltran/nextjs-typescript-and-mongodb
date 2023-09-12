@@ -3,8 +3,8 @@ import Link from 'next/link'
 import useFetch, { revalidate } from 'http-react'
 import Icon from 'bs-icon'
 
-import { IPost } from 'src/Models/Post'
-import Header from 'components/Header'
+import Header from '(components)/Header'
+import { Types } from '(types)'
 
 function confirmPostDelete(id: any) {
   const confirmation = confirm('Do you want to remove this post?')
@@ -13,7 +13,7 @@ function confirmPostDelete(id: any) {
   }
 }
 
-function Post(props: Partial<IPost>) {
+function Post(props: Partial<Types.Post>) {
   const fetchID = {
     post: props
   }
@@ -22,7 +22,7 @@ function Post(props: Partial<IPost>) {
     id: fetchID,
     method: 'DELETE',
     query: {
-      id: props._id
+      id: props.id
     },
     onResolve() {
       revalidate('GET /posts')
@@ -35,7 +35,7 @@ function Post(props: Partial<IPost>) {
         transition: '0.12s'
       }}
       className='card p-4 relative break-words rounded-lg hover:border-neutral-400 card-bordered m-4'
-      key={`post-${props._id}`}
+      key={`post-${props.id}`}
     >
       <button
         className='btn btn-ghost font-semibold absolute top-1 right-1 cursor-pointer'
@@ -51,7 +51,7 @@ function Post(props: Partial<IPost>) {
 }
 
 export default function Posts() {
-  const { data, loadingFirst, error } = useFetch<IPost[]>('/posts', {
+  const { data, loadingFirst, error } = useFetch<Types.Post[]>('/posts', {
     default: []
   })
 
@@ -74,7 +74,7 @@ export default function Posts() {
       </div>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 rounded-md'>
         {data.map(post => (
-          <Post {...post} key={`post-${post._id}`} />
+          <Post {...post} key={`post-${post.id}`} />
         ))}
       </div>
     </div>
