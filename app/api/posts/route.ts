@@ -1,13 +1,10 @@
-import Validate from 'next-api-validation'
+import { prisma } from '(server)'
+import { Types } from '(types)'
 import { NextResponse } from 'next/server'
-import { Post, IPost } from 'src/Models'
-import { connectToDatabase } from 'src/utils'
-
-connectToDatabase()
 
 export async function GET() {
   try {
-    const posts = await Post.find()
+    const posts = await prisma.post.findMany()
     return NextResponse.json(posts.reverse())
   } catch {
     return NextResponse.json('error', {
@@ -18,10 +15,11 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const body: IPost = await req.json()
-    const newPost = new Post(body)
-    const saved = await newPost.save()
-    return NextResponse.json(saved)
+    const body: Types.Post = await req.json()
+    const newPost = await prisma.post.create({
+      data: body
+    })
+    return NextResponse.json(newPost)
   } catch {
     return NextResponse.json('error', {
       status: 500
@@ -31,9 +29,13 @@ export async function POST(req: Request) {
 
 export async function DELETE(req: Request) {
   const query = new URL(req.url).searchParams
-  const id = query.get('id')
+  const id = query.get('id') as string
   try {
-    const deletedPost = await Post.findByIdAndDelete(id)
+    const deletedPost = await prisma.post.delete({
+      where: {
+        id
+      }
+    })
 
     return NextResponse.json(deletedPost)
   } catch {

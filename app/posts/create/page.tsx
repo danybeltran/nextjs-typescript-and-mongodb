@@ -7,8 +7,8 @@ import Link from 'next/link'
 import Icon from 'bs-icon'
 import useFetch, { revalidate } from 'http-react'
 
-import Header from 'components/Header'
-import Input from 'components/Input'
+import Header from '(components)/Header'
+import Input from '(components)/Input'
 
 function savePost() {
   revalidate('POST /posts')
@@ -26,7 +26,7 @@ export default function Create() {
 
   const newPost = {
     ...post,
-    date: newPostDate
+    date: new Date(newPostDate).toISOString()
   }
 
   // This is not automatic, this is a mutation
@@ -50,7 +50,7 @@ export default function Create() {
             value={post.title}
             name='title'
             onChange={e =>
-              setPost.write({
+              setPost.setPartialValue({
                 title: e.target.value
               })
             }
@@ -63,7 +63,7 @@ export default function Create() {
             className='textarea textarea-bordered h-32 resize-none w-full'
             name='content'
             onChange={e =>
-              setPost.write({
+              setPost.setPartialValue({
                 content: e.target.value
               })
             }

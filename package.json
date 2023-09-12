@@ -3,29 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npx prisma generate dev --name init && next dev",
+    "build": "npx prisma generate init && next build",
+    "migrate:dev": "npx prisma generate dev --name init",
     "start": "next start"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.14",
-    "bs-icon": "^0.0.5",
-    "daisyui": "^2.51.6",
+    "@prisma/client": "^5.2.0",
+    "atomic-state": "^2.3.8",
+    "autoprefixer": "^10.4.15",
+    "bs-icon": "^0.0.6",
+    "daisyui": "^3.7.3",
     "http-react": "^3.0.5",
-    "mongoose": "^7.1.0",
-    "next": "^13.4.1",
-    "next-api-validation": "^1.0.5",
-    "postcss": "^8.4.23",
+    "js-cookie": "^3.0.5",
+    "next": "^13.4.19",
+    "postcss": "^8.4.29",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-kuh": "^0.0.8",
-    "tailwindcss": "^3.3.2"
+    "react-kuh": "^0.1.0",
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@types/mongoose": "^5.11.97",
-    "@types/node": "^20.1.0",
-    "@types/react": "^18.2.6",
-    "@types/react-dom": "^18.2.4",
-    "typescript": "^5.0.4"
+    "@types/node": "^20.6.0",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "prisma": "^5.2.0",
+    "typescript": "^5.2.2"
   }
 }

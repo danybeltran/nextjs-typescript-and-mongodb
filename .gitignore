@@ -19,6 +19,7 @@ next-env.d.ts
 .vscode
 *.pem
 .env
+package-lock.json
 
 # debug
 npm-debug.log*
