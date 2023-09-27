@@ -9,27 +9,27 @@
     "start": "next start"
   },
   "dependencies": {
-    "@prisma/client": "^5.2.0",
-    "atomic-state": "^2.3.8",
-    "autoprefixer": "^10.4.15",
+    "@prisma/client": "^5.3.1",
+    "atomic-state": "^2.5.0",
+    "autoprefixer": "^10.4.16",
     "bs-icon": "^0.0.6",
-    "daisyui": "^3.7.3",
+    "daisyui": "^3.8.0",
     "http-react": "^3.0.5",
     "js-cookie": "^3.0.5",
-    "next": "^13.4.19",
-    "postcss": "^8.4.29",
+    "next": "^13.5.3",
+    "postcss": "^8.4.30",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-kuh": "^0.1.0",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.3",
+    "@types/js-cookie": "^3.0.4",
     "@types/mongoose": "^5.11.97",
-    "@types/node": "^20.6.0",
-    "@types/react": "^18.2.21",
+    "@types/node": "^20.7.0",
+    "@types/react": "^18.2.23",
     "@types/react-dom": "^18.2.7",
-    "prisma": "^5.2.0",
+    "prisma": "^5.3.1",
     "typescript": "^5.2.2"
   }
 }
