@@ -14,9 +14,7 @@ function confirmPostDelete(id: any) {
 }
 
 function Post(props: Partial<Types.Post>) {
-  const fetchID = {
-    post: props
-  }
+  const fetchID = ['delete', props.id].join('-')
 
   useFetch('/posts', {
     id: fetchID,
