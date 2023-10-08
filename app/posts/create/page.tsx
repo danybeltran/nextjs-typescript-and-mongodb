@@ -5,14 +5,10 @@ import { useObject } from 'react-kuh'
 
 import Link from 'next/link'
 import Icon from 'bs-icon'
-import useFetch, { revalidate } from 'http-react'
+import useFetch, { revalidate, useManualFetch } from 'http-react'
 
 import Header from '(components)/Header'
 import Input from '(components)/Input'
-
-function savePost() {
-  revalidate('POST /posts')
-}
 
 export default function Create() {
   const router = useRouter()
@@ -29,8 +25,7 @@ export default function Create() {
     date: new Date(newPostDate).toISOString()
   }
 
-  // This is not automatic, this is a mutation
-  useFetch('/posts', {
+  const { reFetch: savePost } = useManualFetch('/posts', {
     method: 'POST',
     body: { ...newPost, _id: undefined },
     onResolve() {
