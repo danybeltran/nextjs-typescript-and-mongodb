@@ -3,18 +3,25 @@ import { AtomicState } from 'atomic-state'
 import { FetchConfig } from 'http-react'
 import Link from 'next/link'
 import Icon from 'bs-icon'
+import { cookies } from 'next/headers'
 
 import ThemeToggle from '(components)/ThemeToggle'
 import ThemeWrap from '(components)/ThemeWrapp'
 
 function MainLayout({ children }) {
+  const theme = JSON.parse(cookies().get('theme')?.value ?? '"dark"')
+
   return (
     <html>
       <head>
         <title>Next.js starter</title>
         <meta name='description' content='A Starter with Next.js' />
       </head>
-      <AtomicState>
+      <AtomicState
+        default={{
+          theme
+        }}
+      >
         <FetchConfig baseUrl='/api'>
           <body>
             <ThemeWrap>

@@ -1,7 +1,7 @@
 'use client'
 import { atom, useAtom } from 'atomic-state'
 
-const themeState = atom({
+export const themeState = atom({
   key: 'theme',
   persist: true,
   default: 'light' as 'light' | 'dark',
