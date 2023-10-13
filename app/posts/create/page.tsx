@@ -5,7 +5,7 @@ import { useObject } from 'react-kuh'
 
 import Link from 'next/link'
 import Icon from 'bs-icon'
-import useFetch, { revalidate, useManualFetch } from 'http-react'
+import { useManualFetch } from 'http-react'
 
 import Header from '(components)/Header'
 import Input from '(components)/Input'

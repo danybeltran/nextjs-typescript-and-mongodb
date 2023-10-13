@@ -27,8 +27,11 @@ And you are ready to go:)
 I created three of the libraries used in this project:
 
 [`http-react`](https://http-react.netlify.app/): React hooks for Data fetching
+
+
 [`react-kuh`](https://www.npmjs.com/package/react-kuh): TypeScript-ready React (kinda) useful hooks
-[`next-api-validation`](https://www.npmjs.com/package/next-api-validation): Validate HTTP requests inside Next.js API endpoints
+
+
 
 
 [Live preview](https://nextjs-typescript-and-mongodb-psi.vercel.app)
