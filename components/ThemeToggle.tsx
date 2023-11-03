@@ -1,6 +1,6 @@
 'use client'
 
-import { themeState } from '(states)'
+import { themeState } from 'states'
 import { useActions, useValue } from 'atomic-state'
 import Icon from 'bs-icon'
 

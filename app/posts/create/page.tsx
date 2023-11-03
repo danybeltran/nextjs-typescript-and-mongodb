@@ -7,8 +7,8 @@ import Link from 'next/link'
 import Icon from 'bs-icon'
 import { useManualFetch } from 'http-react'
 
-import Header from '(components)/Header'
-import Input from '(components)/Input'
+import Header from 'components/Header'
+import Input from 'components/Input'
 
 export default function Create() {
   const router = useRouter()

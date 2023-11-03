@@ -24,7 +24,7 @@ And you are ready to go:)
 
 ---
 
-I created three of the libraries used in this project:
+Some of the libraries used in this project:
 
 [`http-react`](https://http-react.netlify.app/): React hooks for Data fetching
 

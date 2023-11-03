@@ -1,5 +1,5 @@
-import { prisma } from '(server)'
-import { Types } from '(types)'
+import { prisma } from 'server'
+import { Types } from 'types'
 import { NextResponse } from 'next/server'
 
 export async function GET() {

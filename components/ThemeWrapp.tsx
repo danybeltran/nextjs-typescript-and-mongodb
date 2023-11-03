@@ -1,5 +1,5 @@
 'use client'
-import { useTheme } from '(states)'
+import { useTheme } from 'states'
 
 export default function ThemeWrap({ children }) {
   const [theme] = useTheme()

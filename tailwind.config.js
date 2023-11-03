@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./app/**/*.tsx', './(components)/**/*.tsx'],
+  purge: ['./app/**/*.tsx', './components/**/*.tsx'],
   darkMode: false,
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
