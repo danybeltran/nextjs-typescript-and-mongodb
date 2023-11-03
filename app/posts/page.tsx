@@ -3,8 +3,8 @@ import Link from 'next/link'
 import useFetch, { revalidate } from 'http-react'
 import Icon from 'bs-icon'
 
-import Header from '(components)/Header'
-import { Types } from '(types)'
+import Header from 'components/Header'
+import { Types } from 'types'
 
 function confirmPostDelete(id: any) {
   const confirmation = confirm('Do you want to remove this post?')

@@ -5,8 +5,8 @@ import Link from 'next/link'
 import Icon from 'bs-icon'
 import { cookies } from 'next/headers'
 
-import ThemeToggle from '(components)/ThemeToggle'
-import ThemeWrap from '(components)/ThemeWrapp'
+import ThemeToggle from 'components/ThemeToggle'
+import ThemeWrap from 'components/ThemeWrapp'
 
 function MainLayout({ children }) {
   const theme = JSON.parse(cookies().get('theme')?.value ?? '"dark"')
