@@ -13,7 +13,6 @@
     "atomic-state": "^2.7.1",
     "autoprefixer": "^10.4.16",
     "bs-icon": "^0.0.6",
-    "daisyui": "^3.9.4",
     "http-react": "^3.0.6",
     "js-cookie": "^3.0.5",
     "next": "^14.0.1",
