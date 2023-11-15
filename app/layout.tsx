@@ -3,6 +3,7 @@ import { FetchConfig } from 'http-react'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import Navbar from './Navbar'
+import { ThemeProvider } from 'components/theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 function MainLayout({ children }) {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <head>
         <title>Next.js starter</title>
         <meta name='description' content='A Starter with Next.js' />
@@ -21,10 +22,12 @@ function MainLayout({ children }) {
 
       <FetchConfig baseUrl='/api'>
         <body className={inter.className}>
-          <main className='min-h-screen'>
-            <Navbar />
-            {children}
-          </main>
+          <ThemeProvider attribute='class' defaultTheme='system'>
+            <main className='min-h-screen'>
+              <Navbar />
+              {children}
+            </main>
+          </ThemeProvider>
         </body>
       </FetchConfig>
     </html>
