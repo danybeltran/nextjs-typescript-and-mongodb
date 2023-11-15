@@ -11,6 +11,7 @@
   "dependencies": {
     "@prisma/client": "^5.5.2",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-slot": "^1.0.2",
     "atomic-state": "^2.7.1",
