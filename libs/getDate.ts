@@ -1,4 +1,4 @@
-export function getDate(date: string): string {
+export function getDate(date: Date): string {
   const dateObject = new Date(date)
 
   const monthNames = [

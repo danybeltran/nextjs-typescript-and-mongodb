@@ -9,6 +9,14 @@ import {
   CardTitle
 } from '../../../components/ui/card'
 import PostDeleteButton from './PostDeleteButton'
+
+type Post = {
+  id: string
+  title: string
+  date: Date
+  content: string
+}
+
 interface Props {
   post: Post
 }

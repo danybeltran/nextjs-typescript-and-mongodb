@@ -7,7 +7,6 @@ import Link from 'next/link'
 import Icon from 'bs-icon'
 import { useManualFetch } from 'http-react'
 
-import Header from 'components/Header'
 import { Button } from 'components/ui/button'
 import { Textarea } from 'components/ui/textarea'
 import { Input } from 'components/ui/input'

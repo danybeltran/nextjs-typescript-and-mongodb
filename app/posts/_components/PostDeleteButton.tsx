@@ -15,7 +15,7 @@ import { Button } from '../../../components/ui/button'
 import useFetch, { revalidate } from 'http-react'
 
 interface Props {
-  postId: String
+  postId: string
 }
 
 const PostDeleteButton = ({ postId }: Props) => {
