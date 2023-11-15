@@ -40,10 +40,10 @@ export default function Create() {
     <section>
       <Link href='/posts' className='flex gap-1 items-center '>
         <ArrowLeft size={18} />
-        <Icon name='arrow-left' className='text-xl' /> Back
+        Back
       </Link>
       <div className='max-w-3xl mx-auto'>
-        <header className='my-8'>
+        <header className='my-4 md:my-8'>
           <h1 className='font-bold text-2xl'>Add Post</h1>
         </header>
 
@@ -72,11 +72,14 @@ export default function Create() {
               }
             ></Textarea>
           </div>
-          <div className='w-full text-center'>
-            <Button onClick={savePost} size='sm'>
-              <span>Craete Post</span>
-            </Button>
-          </div>
+
+          <Button
+            className='w-full max-w-[200px] mx-auto'
+            onClick={savePost}
+            size='sm'
+          >
+            <span>Craete Post</span>
+          </Button>
         </div>
       </div>
     </section>

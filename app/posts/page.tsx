@@ -4,6 +4,7 @@ import { Types } from 'types'
 import { Button } from 'components/ui/button'
 import PostCard from './_components/PostCard'
 import useFetch from 'http-react'
+import { ArrowLeft } from 'lucide-react'
 
 export default function Posts() {
   const { data, loadingFirst, error } = useFetch<Types.Post[]>('/posts', {
@@ -18,7 +19,11 @@ export default function Posts() {
 
   return (
     <section>
-      <header className='flex items-center justify-between'>
+      <Link href='/' className='flex gap-1 items-center '>
+        <ArrowLeft size={18} />
+        Back
+      </Link>
+      <header className='flex items-center justify-between my-4 md:my-8'>
         <h1 className='font-bold text-2xl'>All Posts</h1>
         <Link href='/posts/create'>
           <Button size='sm' variant='outline'>
