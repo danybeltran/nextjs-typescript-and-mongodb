@@ -5,6 +5,8 @@ import Icon from 'bs-icon'
 
 import Header from 'components/Header'
 import { Types } from 'types'
+import { Button } from 'components/ui/button'
+import PostCard from './_components/PostCard'
 
 function confirmPostDelete(id: any) {
   const confirmation = confirm('Do you want to remove this post?')
@@ -60,21 +62,20 @@ export default function Posts() {
     return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
 
   return (
-    <div>
-      <Header>Your posts ({data.length})</Header>
-      <div className='flex space-x-4'>
-        <Link href='/' className='btn gap-x-2 btn-ghost'>
-          <Icon name='arrow-left' className='text-xl' /> Back
+    <section>
+      <header className='flex items-center justify-between'>
+        <h1 className='font-bold text-2xl  '>All Posts</h1>
+        <Link href='/posts/create'>
+          <Button size='sm' variant='outline'>
+            Create Post
+          </Button>
         </Link>
-        <Link href='/posts/create' className='btn gap-x-2'>
-          Add one post <Icon name='plus' className='text-xl' />
-        </Link>
-      </div>
-      <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 rounded-md'>
+      </header>
+      <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 rounded-md'>
         {data.map(post => (
-          <Post {...post} key={`post-${post.id}`} />
+          <PostCard post={post} key={post} />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
