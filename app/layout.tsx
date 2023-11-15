@@ -2,6 +2,7 @@ import './globals.css'
 import { FetchConfig } from 'http-react'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
+import Navbar from './Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,12 @@ function MainLayout({ children }) {
       </head>
 
       <FetchConfig baseUrl='/api'>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <main className='min-h-screen'>
+            <Navbar />
+            {children}
+          </main>
+        </body>
       </FetchConfig>
     </html>
   )
