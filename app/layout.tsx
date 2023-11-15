@@ -1,7 +1,14 @@
 import './globals.css'
 import { FetchConfig } from 'http-react'
-import Link from 'next/link'
-import Icon from 'bs-icon'
+import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'SkillShop - Home',
+  description: 'Home page of skillshop'
+}
 
 function MainLayout({ children }) {
   return (
@@ -12,16 +19,7 @@ function MainLayout({ children }) {
       </head>
 
       <FetchConfig baseUrl='/api'>
-        <body>
-          {children}
-          <Link
-            href='https://github.com/danybeltran/nextjs-typescript-and-mongodb'
-            target='_blank'
-            className='fixed bottom-2 left-2 btn btn-sm gap-x-2'
-          >
-            <Icon name='github' /> <span>Github</span>
-          </Link>
-        </body>
+        <body className={inter.className}>{children}</body>
       </FetchConfig>
     </html>
   )
