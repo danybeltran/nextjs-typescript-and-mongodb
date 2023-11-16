@@ -7,8 +7,11 @@ import Link from 'next/link'
 import Icon from 'bs-icon'
 import { useManualFetch } from 'http-react'
 
-import Header from 'components/Header'
-import Input from 'components/Input'
+import { Button } from 'components/ui/button'
+import { Textarea } from 'components/ui/textarea'
+import { Input } from 'components/ui/input'
+import { Label } from 'components/ui/label'
+import { ArrowLeft } from 'lucide-react'
 
 export default function Create() {
   const router = useRouter()
@@ -34,43 +37,51 @@ export default function Create() {
   })
 
   return (
-    <div>
-      <Link href='/posts' className='btn gap-x-2 btn-ghost'>
-        <Icon name='arrow-left' className='text-xl' /> Back
+    <section>
+      <Link href='/posts' className='flex gap-1 items-center '>
+        <ArrowLeft size={18} />
+        Back
       </Link>
-      <Header>Add post</Header>
-      <div className='flex flex-wrap w-full md:w-96 items-center justify-center space-y-2'>
-        <div className='w-full'>
-          <Input
-            value={post.title}
-            name='title'
-            onChange={e =>
-              setPost.setPartialValue({
-                title: e.target.value
-              })
-            }
-            placeholder='Title'
-          />
-        </div>
-        <div className='w-full'>
-          <textarea
-            placeholder='Content'
-            className='textarea textarea-bordered h-32 resize-none w-full'
-            name='content'
-            onChange={e =>
-              setPost.setPartialValue({
-                content: e.target.value
-              })
-            }
-          ></textarea>
-        </div>
-        <div className='w-full text-center'>
-          <button onClick={savePost} className='btn gap-x-2'>
-            <span>Save</span>
-            <Icon name='disc' className='text-xl' />
-          </button>
+      <div className='max-w-3xl mx-auto'>
+        <header className='my-4 md:my-8'>
+          <h1 className='font-bold text-2xl'>Add Post</h1>
+        </header>
+
+        <div className='flex flex-col space-y-4 '>
+          <div className='w-full flex flex-col gap-2'>
+            <Label>Title</Label>
+            <Input
+              value={post.title}
+              name='title'
+              onChange={e =>
+                setPost.setPartialValue({
+                  title: e.target.value
+                })
+              }
+            />
+          </div>
+          <div className='w-full flex flex-col gap-2'>
+            <Label>Description</Label>
+            <Textarea
+              className='min-h-[200px]'
+              name='content'
+              onChange={e =>
+                setPost.setPartialValue({
+                  content: e.target.value
+                })
+              }
+            ></Textarea>
+          </div>
+
+          <Button
+            className='w-full max-w-[200px] mx-auto'
+            onClick={savePost}
+            size='sm'
+          >
+            <span>Craete Post</span>
+          </Button>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
