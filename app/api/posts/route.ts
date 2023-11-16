@@ -2,17 +2,6 @@ import { prisma } from 'server'
 import { Types } from 'types'
 import { NextResponse } from 'next/server'
 
-export async function GET() {
-  try {
-    const posts = await prisma.post.findMany()
-    return NextResponse.json(posts.reverse())
-  } catch {
-    return NextResponse.json('error', {
-      status: 500
-    })
-  }
-}
-
 export async function POST(req: Request) {
   try {
     const body: Types.Post = await req.json()

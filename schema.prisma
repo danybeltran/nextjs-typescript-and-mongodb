@@ -10,8 +10,6 @@ generator client {
 model Post {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
-  date      DateTime
+  date      DateTime @default(now())
   content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
