@@ -18,6 +18,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "atomic-state": "^2.7.1",
     "autoprefixer": "^10.4.16",
+    "axios": "^1.6.2",
     "bs-icon": "^0.0.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,6 +22,8 @@ interface Props {
 const PostDeleteButton = ({ postId }: Props) => {
   const fetchID = ['delete', postId].join('-')
 
+  const router = useRouter()
+
   useFetch('/posts', {
     id: fetchID,
     method: 'DELETE',
@@ -28,7 +31,7 @@ const PostDeleteButton = ({ postId }: Props) => {
       id: postId
     },
     onResolve() {
-      revalidate('GET /posts')
+      router.refresh()
     }
   })
 
