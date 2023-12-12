@@ -3,9 +3,14 @@ import { Button } from 'components/ui/button'
 import PostCard from './_components/PostCard'
 import { ArrowLeft } from 'lucide-react'
 import { prisma } from 'server'
+import { headers } from 'next/headers'
+
+export const revalidate = 0
 
 export default async function Posts() {
-  const posts = await prisma.post.findMany({})
+  headers()
+
+  const posts = (await prisma.post.findMany({})).reverse()
 
   return (
     <section>
