@@ -21,26 +21,3 @@ export async function POST(request: Request) {
     })
   }
 }
-
-export async function DELETE(req: Request) {
-  const query = new URL(req.url).searchParams
-  const id = query.get('id') as string
-  try {
-    const deletedPost = await prisma.post.delete({
-      where: {
-        id
-      }
-    })
-
-    return NextResponse.json(deletedPost)
-  } catch {
-    return NextResponse.json(
-      {
-        error: 'Failed to remove post'
-      },
-      {
-        status: 500
-      }
-    )
-  }
-}

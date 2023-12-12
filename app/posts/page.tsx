@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 import { prisma } from 'server'
 
 export default async function Posts() {
-  const posts = await prisma.post.findMany()
+  const posts = await prisma.post.findMany({})
 
   return (
     <section>

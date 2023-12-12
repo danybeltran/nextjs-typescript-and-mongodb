@@ -13,27 +13,23 @@ import {
   AlertDialogTrigger
 } from '../../../components/ui/alert-dialog'
 import { Button } from '../../../components/ui/button'
-import useFetch, { revalidate } from 'http-react'
+import axios from 'axios'
 
 interface Props {
   postId: string
 }
 
 const PostDeleteButton = ({ postId }: Props) => {
-  const fetchID = ['delete', postId].join('-')
-
   const router = useRouter()
 
-  useFetch('/posts', {
-    id: fetchID,
-    method: 'DELETE',
-    query: {
-      id: postId
-    },
-    onResolve() {
+  const handleDelete = async () => {
+    try {
+      const res = await axios.delete('api/posts/' + postId)
       router.refresh()
+    } catch (error) {
+      console.log(error)
     }
-  })
+  }
 
   return (
     <AlertDialog>
@@ -52,9 +48,7 @@ const PostDeleteButton = ({ postId }: Props) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={() => revalidate(fetchID)}>
-            Delete
-          </AlertDialogAction>
+          <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
