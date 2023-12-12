@@ -1,4 +1,4 @@
-import { prisma } from 'server'
+import prisma from '../../../prisma/client'
 import { NextResponse } from 'next/server'
 import { postSchema } from 'app/schemasValidations'
 

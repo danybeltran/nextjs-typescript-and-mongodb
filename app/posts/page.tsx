@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Button } from 'components/ui/button'
 import PostCard from './_components/PostCard'
 import { ArrowLeft } from 'lucide-react'
-import { prisma } from 'server'
+import prisma from '../../prisma/client'
 
 export default async function Posts() {
   const posts = await prisma.post.findMany({})
