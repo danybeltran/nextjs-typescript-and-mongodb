@@ -1,21 +1,11 @@
-'use client'
 import Link from 'next/link'
-import { Types } from 'types'
 import { Button } from 'components/ui/button'
 import PostCard from './_components/PostCard'
-import useFetch from 'http-react'
 import { ArrowLeft } from 'lucide-react'
+import { prisma } from 'server'
 
-export default function Posts() {
-  const { data, loadingFirst, error } = useFetch<Types.Post[]>('/posts', {
-    default: []
-  })
-
-  if (loadingFirst)
-    return <p className='text-2xl font-semibold py-4'>Loading posts...</p>
-
-  if (error)
-    return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
+export default async function Posts() {
+  const posts = await prisma.post.findMany({})
 
   return (
     <section>
@@ -32,7 +22,7 @@ export default function Posts() {
         </Link>
       </header>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 rounded-md'>
-        {data.map(post => (
+        {posts.map(post => (
           <PostCard post={post} key={post.id} />
         ))}
       </div>
