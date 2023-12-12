@@ -20,14 +20,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
 import axios from 'axios'
 import { Alert, AlertTitle } from 'components/ui/alert'
+import useFetch from 'http-react'
 
 type FormSchema = z.infer<typeof postSchema>
 
 export default function PostForm() {
   const router = useRouter()
-
-  const [error, setError] = useState('')
-  const [isSubmitting, setSubmitting] = useState(false)
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(postSchema),
@@ -37,27 +35,28 @@ export default function PostForm() {
     }
   })
 
-  const onSubmit = form.handleSubmit(async data => {
-    try {
-      setSubmitting(true)
-      await axios.post('/api/posts', {
-        ...data
-      })
-      router.push('/posts')
+  const {
+    reFetch: submitPost,
+    loading: isSubmitting,
+    error
+  } = useFetch('/posts', {
+    method: 'POST',
+    auto: false,
+    body: form.getValues(),
+    onResolve() {
+      router.replace('/posts')
       router.refresh()
-    } catch (error) {
-      console.error(error)
-      setSubmitting(false)
-      setError('An unexpected error occurred.')
     }
   })
+
+  const onSubmit = form.handleSubmit(submitPost)
 
   return (
     <Form {...form}>
       {error && (
         <Alert className='mb-4' variant='destructive'>
           <AlertCircle className='h-4 w-4' />
-          <AlertTitle>{error}</AlertTitle>
+          <AlertTitle>An error ocurred</AlertTitle>
         </Alert>
       )}
 
