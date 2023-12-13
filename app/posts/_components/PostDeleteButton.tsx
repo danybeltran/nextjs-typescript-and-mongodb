@@ -32,6 +32,7 @@ const PostDeleteButton = ({ postId }: Props) => {
       postId
     },
     onResolve() {
+      router.replace('/posts')
       router.refresh()
     },
     onError(err) {
@@ -42,7 +43,7 @@ const PostDeleteButton = ({ postId }: Props) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button size='sm' variant='outline'>
+        <Button className='w-80 lg:w-full' size='sm' variant='outline'>
           Delete
         </Button>
       </AlertDialogTrigger>

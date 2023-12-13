@@ -26,7 +26,7 @@ export default async function Posts() {
           </Button>
         </Link>
       </header>
-      <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 rounded-md'>
+      <div className='py-4 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  gap-2 rounded-md'>
         {posts.map(post => (
           <PostCard post={post} key={post.id} />
         ))}
