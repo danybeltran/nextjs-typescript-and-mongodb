@@ -17,8 +17,6 @@ import {
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react'
-import axios from 'axios'
 import { Alert, AlertTitle } from 'components/ui/alert'
 import useFetch from 'http-react'
 
