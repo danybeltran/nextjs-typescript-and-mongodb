@@ -8,7 +8,8 @@ import {
   CardHeader,
   CardTitle
 } from '../../../components/ui/card'
-import PostDeleteButton from './PostDeleteButton'
+import { Button } from 'components/ui/button'
+import Link from 'next/link'
 
 type Post = {
   id: string
@@ -32,7 +33,9 @@ const PostCard = ({ post }: Props) => {
         <p className='line-clamp-2'>{post.content}</p>
       </CardContent>
       <CardFooter className='flex justify-end'>
-        <PostDeleteButton postId={post.id} />
+        <Button size='sm' variant='outline' asChild>
+          <Link href={`/posts/${post.id}`}>View Post</Link>
+        </Button>
       </CardFooter>
     </Card>
   )

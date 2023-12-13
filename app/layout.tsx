@@ -8,8 +8,8 @@ import { ThemeProvider } from 'components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'SkillShop - Home',
-  description: 'Home page of skillshop'
+  title: 'Home',
+  description: 'Home page '
 }
 
 function MainLayout({ children }) {

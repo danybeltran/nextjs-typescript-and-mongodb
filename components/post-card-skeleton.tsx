@@ -20,7 +20,8 @@ const PostCardSkeleton = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Skeleton className='h-6 w-full' />
+        <Skeleton className='h-5 w-full mb-1' />
+        <Skeleton className='h-5 w-full' />
       </CardContent>
       <CardFooter className='flex justify-end'>
         <Skeleton className='h-9 w-[69.5px] rounded-md' />
