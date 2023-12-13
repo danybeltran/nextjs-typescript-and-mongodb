@@ -60,7 +60,7 @@ export default function PostForm() {
         </Alert>
       )}
 
-      <form onSubmit={onSubmit} className='w-2/3 space-y-6'>
+      <form onSubmit={onSubmit} className='w-full space-y-6'>
         <FormField
           control={form.control}
           name='title'
@@ -87,10 +87,12 @@ export default function PostForm() {
             </FormItem>
           )}
         />
-        <Button disabled={isSubmitting} type='submit'>
-          {isSubmitting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
-          Create Post
-        </Button>
+        <div className='flex justify-end'>
+          <Button disabled={isSubmitting} type='submit'>
+            {isSubmitting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+            Create Post
+          </Button>
+        </div>
       </form>
     </Form>
   )
