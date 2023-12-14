@@ -22,6 +22,7 @@ import { Skeleton } from 'components/ui/skeleton'
 import dynamic from 'next/dynamic'
 import 'easymde/dist/easymde.min.css'
 import './simpleMDE-dark.css'
+
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
   ssr: false,
   loading: () => <Skeleton className='h-[405px] rounded-md' />

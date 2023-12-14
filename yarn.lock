@@ -1623,7 +1623,7 @@ dlv@^1.1.3:
   resolved "https://registry.npmjs.org/dlv/-/dlv-1.1.3.tgz"
   integrity sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==
 
-"easymde@>= 2.0.0 < 3.0.0":
+easymde@^2.18.0, "easymde@>= 2.0.0 < 3.0.0":
   version "2.18.0"
   resolved "https://registry.npmjs.org/easymde/-/easymde-2.18.0.tgz"
   integrity sha512-IxVVUxNWIoXLeqtBU4BLc+eS/ScYhT1Dcb6yF5Wchoj1iXAV+TIIDWx+NCaZhY7RcSHqDPKllbYq7nwGKILnoA==
