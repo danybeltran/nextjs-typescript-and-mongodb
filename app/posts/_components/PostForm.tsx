@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { Button } from 'components/ui/button'
-import { Textarea } from 'components/ui/textarea'
 import { Input } from 'components/ui/input'
 import { AlertCircle, Loader2 } from 'lucide-react'
 import { postSchema } from 'app/schemasValidations'
@@ -19,6 +18,15 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Alert, AlertTitle } from 'components/ui/alert'
 import useFetch from 'http-react'
+import { Skeleton } from 'components/ui/skeleton'
+import dynamic from 'next/dynamic'
+import 'easymde/dist/easymde.min.css'
+import './simpleMDE-dark.css'
+
+const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
+  ssr: false,
+  loading: () => <Skeleton className='h-[405px] rounded-md' />
+})
 
 type FormSchema = z.infer<typeof postSchema>
 
@@ -79,7 +87,7 @@ export default function PostForm() {
             <FormItem>
               <FormLabel>Description</FormLabel>
               <FormControl>
-                <Textarea className='min-h-[200px]' {...field} />
+                <SimpleMDE placeholder='Description' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

@@ -1,5 +1,6 @@
 import { Post } from '@prisma/client'
 import { getDate } from 'libs/getDate'
+import ReactMarkdown from 'react-markdown'
 
 interface Props {
   post: Post
@@ -21,7 +22,9 @@ const PostDetails = ({ post }: Props) => {
         </time>
       </header>
 
-      <article className='my-8 sm:text-lg'>{post.content}</article>
+      <article className='my-8 sm:text-lg prose prose-stone dark:prose-invert'>
+        <ReactMarkdown>{post.content}</ReactMarkdown>
+      </article>
     </section>
   )
 }
