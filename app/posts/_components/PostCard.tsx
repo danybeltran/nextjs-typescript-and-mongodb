@@ -10,6 +10,7 @@ import {
 } from '../../../components/ui/card'
 import { Button } from 'components/ui/button'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 type Post = {
   id: string
@@ -30,7 +31,9 @@ const PostCard = ({ post }: Props) => {
         <CardDescription>{getDate(post.date)}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className='line-clamp-2'>{post.content}</p>
+        <article className='text-sm prose prose-stone dark:prose-invert line-clamp-1'>
+          <ReactMarkdown>{post.content}</ReactMarkdown>
+        </article>
       </CardContent>
       <CardFooter className='flex justify-end'>
         <Button size='sm' variant='outline' asChild>
