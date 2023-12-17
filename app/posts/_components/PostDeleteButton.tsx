@@ -14,6 +14,7 @@ import {
 } from '../../../components/ui/alert-dialog'
 import { Button } from '../../../components/ui/button'
 import useFetch from 'http-react'
+import { Loader2 } from 'lucide-react'
 
 interface Props {
   postId: string
@@ -22,28 +23,37 @@ interface Props {
 const PostDeleteButton = ({ postId }: Props) => {
   const router = useRouter()
 
-  const { reFetch: handleDelete } = useFetch('/posts/[postId]', {
-    method: 'DELETE',
-    id: {
-      postId
-    },
-    auto: false,
-    params: {
-      postId
-    },
-    onResolve() {
-      router.replace('/posts')
-      router.refresh()
-    },
-    onError(err) {
-      console.log(err)
+  const { reFetch: handleDelete, loading: isDeleting } = useFetch(
+    '/posts/[postId]',
+    {
+      method: 'DELETE',
+      id: {
+        postId
+      },
+      auto: false,
+      params: {
+        postId
+      },
+      onResolve() {
+        router.replace('/posts')
+        router.refresh()
+      },
+      onError(err) {
+        console.log(err)
+      }
     }
-  })
+  )
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className='w-80 lg:w-full' size='sm' variant='outline'>
+        <Button
+          disabled={isDeleting}
+          className='w-80 lg:w-full'
+          size='sm'
+          variant='outline'
+        >
+          {isDeleting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
           Delete
         </Button>
       </AlertDialogTrigger>
