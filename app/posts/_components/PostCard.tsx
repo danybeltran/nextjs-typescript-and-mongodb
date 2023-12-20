@@ -1,5 +1,5 @@
 'use client'
-import { getDate } from 'libs/getDate'
+import { formatDate } from 'lib/getDate'
 import {
   Card,
   CardContent,
@@ -28,7 +28,7 @@ const PostCard = ({ post }: Props) => {
     <Card className='h-fit'>
       <CardHeader>
         <CardTitle className='line-clamp-1 '>{post.title}</CardTitle>
-        <CardDescription>{getDate(post.date)}</CardDescription>
+        <CardDescription>{formatDate(post.date)}</CardDescription>
       </CardHeader>
       <CardContent>
         <article className='text-sm prose prose-stone dark:prose-invert line-clamp-1'>
