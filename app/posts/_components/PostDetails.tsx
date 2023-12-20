@@ -1,5 +1,5 @@
 import { Post } from '@prisma/client'
-import { getDate } from 'libs/getDate'
+import { formatDate } from 'lib/getDate'
 import ReactMarkdown from 'react-markdown'
 
 interface Props {
@@ -18,7 +18,7 @@ const PostDetails = ({ post }: Props) => {
           dateTime={post.date.toDateString()}
           className='block text-sm text-muted-foreground'
         >
-          Published on {getDate(post.date)}
+          Published on {formatDate(post.date)}
         </time>
       </header>
 

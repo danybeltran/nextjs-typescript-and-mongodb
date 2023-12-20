@@ -76,9 +76,9 @@
 }
 
 body {
-  --sb-track-color: #232e33;
-  --sb-thumb-color: #6baf8d;
-  --sb-size: 10px;
+  --sb-track-color: #111619;
+  --sb-thumb-color: rgb(94, 94, 94);
+  --sb-size: 6px;
   scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   scrollbar-gutter: stable;
 }
@@ -94,5 +94,5 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
-  border-radius: 8px;
+  border-radius: 2px;
 }

@@ -7,7 +7,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle
 } from '../components/ui/navigation-menu'
-import { cn } from 'libs/utils'
+import { cn } from 'lib/utils'
 import { ThemeToggle } from 'components/ThemeToggle'
 
 const Navbar = () => {
