@@ -1526,10 +1526,10 @@ browserslist@^4.21.10:
     node-releases "^2.0.13"
     update-browserslist-db "^1.0.11"
 
-bs-icon@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/bs-icon/-/bs-icon-0.0.6.tgz#f9710bbc74f92a705523ba9cef33770c56eb86aa"
-  integrity sha512-gxTHjzEB2Z7tHDy7kWTavZLDgcLRw3sZzqHKyCW6t/blhM/gMLT6SfG9D0QGaUXlqtzXqE3LeAGBO3jOpDHJxw==
+bs-icon@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/bs-icon/-/bs-icon-0.0.7.tgz#668bf012e9412d8d41c4892141b0f874aa0646e1"
+  integrity sha512-5VmTfx06bx8GXH5HuNKBYnhmYYhDtgfvrGyDazazO/96XJ2EAmhqZFuoC+pLpPdcfIjVA7h2s3WNFP7sqLRSoA==
 
 bson@^4.7.0:
   version "4.7.2"
@@ -1664,10 +1664,10 @@ csstype@^3.0.2:
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.1.tgz"
   integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
 
-date-fns@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-3.0.1.tgz#a95b3e8296e72cf57c99819f37679aa27ca65ec4"
-  integrity sha512-cr9igCUa0QSqgAMj7JOrYTY6Nh1rmyGrFDko7ADqfmaQqP/I2N4rlfrLl7AWuzDaoIpz6MNjoEcTPzgZYIrhnA==
+date-fns@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-3.0.3.tgz#590d03c49d991f1f9e3d2e18dc76aa062b5d5bf1"
+  integrity sha512-orRh4Qc+Y5fE8RO2fG0FkggCTxgfRR71kypohBPvIlEHi+GZCy0RuaPm5i2oNVhnT96nNMj/0R+LWAjBA/3prA==
 
 debug@4.x, debug@^4.0.0:
   version "4.3.4"
@@ -1811,6 +1811,11 @@ function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
+
+geist@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/geist/-/geist-1.2.0.tgz#2cbd1bdb3daff44b7ef9078aca0ec3c5bd97e917"
+  integrity sha512-RZsgCkGnSi1IV1Ozg3s6Ou4r/jzLff9+47ChjpJ5yX8ncEC/RwdStGwhdFzDcnSv0xU0+9J/fTX5Kht0NajTXA==
 
 get-nonce@^1.0.0:
   version "1.0.1"
@@ -2682,6 +2687,11 @@ react-hook-form@^7.49.2:
   version "7.49.2"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.49.2.tgz#6fb2742e1308020f26cb1915c7012b6c07b11ade"
   integrity sha512-TZcnSc17+LPPVpMRIDNVITY6w20deMdNi6iehTFLV1x8SqThXGwu93HjlUVU09pzFgZH7qZOvLMM7UYf2ShAHA==
+
+react-icons@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.12.0.tgz#54806159a966961bfd5cdb26e492f4dafd6a8d78"
+  integrity sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==
 
 react-kuh@^0.1.0:
   version "0.1.0"
