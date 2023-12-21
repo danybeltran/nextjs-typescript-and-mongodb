@@ -1,11 +1,9 @@
 import './globals.css'
 import { FetchConfig } from 'http-react'
-import { Inter } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import Navbar from './Navbar'
 import { ThemeProvider } from 'components/theme-provider'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -21,7 +19,7 @@ function MainLayout({ children }) {
       </head>
 
       <FetchConfig baseUrl='/api'>
-        <body className={inter.className}>
+        <body className={GeistSans.className}>
           <ThemeProvider attribute='class' defaultTheme='system'>
             <main className='min-h-screen'>
               <Navbar />
