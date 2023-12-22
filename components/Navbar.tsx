@@ -6,7 +6,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle
-} from '../components/ui/navigation-menu'
+} from './ui/navigation-menu'
 import { cn } from 'lib/utils'
 import { ThemeToggle } from 'components/ThemeToggle'
 
