@@ -2,7 +2,7 @@ import './globals.css'
 import { FetchConfig } from 'http-react'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import Navbar from './Navbar'
+import Navbar from 'components/Navbar'
 import { ThemeProvider } from 'components/theme-provider'
 
 export const metadata: Metadata = {
