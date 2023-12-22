@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { cache } from 'react'
 import { prisma } from 'server'
-import PostDeleteButton from '../_components/PostDeleteButton'
-import PostDetails from '../_components/PostDetails'
+
+import PostDeleteButton from '@/components/post/PostDeleteButton'
+import PostDetails from '@/components/post/PostDetails'
 
 interface Params {
   params: { id: string }

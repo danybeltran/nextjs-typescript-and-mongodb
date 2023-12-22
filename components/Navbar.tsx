@@ -1,14 +1,15 @@
 'use client'
 import Link from 'next/link'
+
+import { ThemeToggle } from '@/components/ThemeToggle'
+import { cn } from '@/lib/utils'
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle
-} from './ui/navigation-menu'
-import { cn } from 'lib/utils'
-import { ThemeToggle } from 'components/ThemeToggle'
+} from '@/components/ui/navigation-menu'
 
 const Navbar = () => {
   return (

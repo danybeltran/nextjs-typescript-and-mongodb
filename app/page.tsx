@@ -1,11 +1,11 @@
-import { Button } from 'components/ui/button'
 import Link from 'next/link'
-
 import { TbBrandNextjs } from 'react-icons/tb'
 import { FaReact } from 'react-icons/fa'
 import { SiPrisma, SiTailwindcss } from 'react-icons/si'
 import { BiLogoMongodb } from 'react-icons/bi'
 import { GoPlus } from 'react-icons/go'
+
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
   return (

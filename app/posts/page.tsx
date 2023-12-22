@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import { Button } from 'components/ui/button'
-import PostCard from './_components/PostCard'
-import { ArrowLeft } from 'lucide-react'
-import { prisma } from 'server'
 import { headers } from 'next/headers'
+import { ArrowLeft } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+import PostCard from '@/components/post/PostCard'
+import { prisma } from '@/server'
 
 export const revalidate = 0
 

@@ -1,10 +1,11 @@
 import './globals.css'
+import { AtomicState } from 'atomic-state'
 import { FetchConfig } from 'http-react'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import Navbar from 'components/Navbar'
-import { ThemeProvider } from 'components/theme-provider'
-import { AtomicState } from 'atomic-state'
+
+import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Home',

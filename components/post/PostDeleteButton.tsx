@@ -1,6 +1,8 @@
 'use client'
-
+import useFetch from 'http-react'
+import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,10 +13,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from '../../../components/ui/alert-dialog'
-import { Button } from '../../../components/ui/button'
-import useFetch from 'http-react'
-import { Loader2 } from 'lucide-react'
+} from '@/components/ui/alert-dialog'
+import { Button } from '@/components/ui/button'
 
 interface Props {
   postId: string
