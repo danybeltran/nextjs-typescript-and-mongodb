@@ -1,9 +1,11 @@
 import './globals.css'
+import { AtomicState } from 'atomic-state'
 import { FetchConfig } from 'http-react'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import Navbar from 'components/Navbar'
-import { ThemeProvider } from 'components/theme-provider'
+
+import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -18,16 +20,18 @@ function MainLayout({ children }) {
         <meta name='description' content='A Starter with Next.js' />
       </head>
 
-      <FetchConfig baseUrl='/api'>
-        <body className={GeistSans.className}>
-          <ThemeProvider attribute='class' defaultTheme='system'>
-            <main className='min-h-screen'>
-              <Navbar />
-              <div className='max-w-7xl mx-auto p-4'>{children}</div>
-            </main>
-          </ThemeProvider>
-        </body>
-      </FetchConfig>
+      <body className={GeistSans.className}>
+        <ThemeProvider attribute='class' defaultTheme='system'>
+          <main className='min-h-screen'>
+            <AtomicState>
+              <FetchConfig baseUrl='/api'>
+                <Navbar />
+                <div className='max-w-7xl mx-auto p-4'>{children}</div>
+              </FetchConfig>
+            </AtomicState>
+          </main>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

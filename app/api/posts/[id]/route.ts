@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from 'server'
+
+import { prisma } from '@/server'
 
 export async function DELETE(
   response: NextRequest,

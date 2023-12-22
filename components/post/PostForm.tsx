@@ -1,10 +1,18 @@
 'use client'
-
-import { useRouter } from 'next/navigation'
-import { Button } from 'components/ui/button'
-import { Input } from 'components/ui/input'
 import { AlertCircle, Loader2 } from 'lucide-react'
-import { postSchema } from 'app/schemasValidations'
+import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
+import { zodResolver } from '@hookform/resolvers/zod'
+import useFetch from 'http-react'
+import dynamic from 'next/dynamic'
+import { z } from 'zod'
+import 'easymde/dist/easymde.min.css'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { postSchema } from '@/app/schemasValidations'
+import { Alert, AlertTitle } from '@/components/ui/alert'
+import { Skeleton } from '@/components/ui/skeleton'
 import {
   Form,
   FormControl,
@@ -12,15 +20,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from 'components/ui/form'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Alert, AlertTitle } from 'components/ui/alert'
-import useFetch from 'http-react'
-import { Skeleton } from 'components/ui/skeleton'
-import dynamic from 'next/dynamic'
-import 'easymde/dist/easymde.min.css'
+} from '@/components/ui/form'
 import './simpleMDE-dark.css'
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {

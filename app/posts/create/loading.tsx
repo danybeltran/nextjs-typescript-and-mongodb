@@ -1,5 +1,6 @@
-import PostFormSkeleton from 'components/post-form-skeleton'
 import { ArrowLeft } from 'lucide-react'
+
+import PostFormSkeleton from '@/components/post/PostFormSkeleton'
 
 const Loading = () => {
   return (

@@ -1,5 +1,9 @@
 'use client'
-import { formatDate } from 'lib/getDate'
+import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+
+import { formatDate } from '@/lib/getDate'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -7,10 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from '../../../components/ui/card'
-import { Button } from 'components/ui/button'
-import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
+} from '@/components/ui/card'
 
 type Post = {
   id: string

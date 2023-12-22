@@ -5,8 +5,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from './ui/card'
-import { Skeleton } from './ui/skeleton'
+} from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
 
 const PostCardSkeleton = () => {
   return (
