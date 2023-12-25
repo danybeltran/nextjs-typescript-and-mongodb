@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 import { ThemeToggle } from '@/components/ThemeToggle'
-import { cn } from '@/lib/utils'
+import { cn } from '@/libs/utils'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,8 +10,12 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
+import { useSession } from 'next-auth/react'
+import AuthButton from './AuthButton'
 
 const Navbar = () => {
+  const { data } = useSession()
+
   return (
     <header className='bg-white dark:bg-slate-950 sticky top-0 z-50'>
       <div className='max-w-7xl mx-auto flex items-center justify-between py-2 px-4'>
@@ -29,6 +33,11 @@ const Navbar = () => {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <AuthButton />
+            </NavigationMenuItem>
+
             <NavigationMenuItem>
               <ThemeToggle />
             </NavigationMenuItem>

@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import AuthProvider from '@/components/AuthProvider'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -23,12 +24,14 @@ function MainLayout({ children }) {
       <body className={GeistSans.className}>
         <ThemeProvider attribute='class' defaultTheme='system'>
           <main className='min-h-screen'>
-            <AtomicState>
-              <FetchConfig baseUrl='/api'>
-                <Navbar />
-                <div className='max-w-7xl mx-auto p-4'>{children}</div>
-              </FetchConfig>
-            </AtomicState>
+            <AuthProvider>
+              <AtomicState>
+                <FetchConfig baseUrl='/api'>
+                  <Navbar />
+                  <div className='max-w-7xl mx-auto p-4'>{children}</div>
+                </FetchConfig>
+              </AtomicState>
+            </AuthProvider>
           </main>
         </ThemeProvider>
       </body>
