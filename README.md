@@ -1,6 +1,6 @@
-### Next.js with TypeScript, MongoDB, HttpReact, TailwindCSS and DaisyUI
+### A Next.js template
 
-A Next.js app with a serverless backend using MongoDB. A template that can be used to quickly bootstrap new Next.js project. It also has Tailwind configured with Postcss and DaisyUI
+A Next.js app that uses Shadcn, Prisma ORM, MongoDB and Next auth
 
 Clone/(Download as zip) this repo, then:
 
@@ -8,28 +8,39 @@ Clone/(Download as zip) this repo, then:
 
 or
 
-`yarn install`
+`yarn`
 
-When starting the dev server, pass an env. variable with the URI for the MongoDB connection.
+You need to pass an env. variable with the URI for the MongoDB connection, as well as `next-auth` env. variables:
 
-`MONGO_URI="my-mongodb-uri" npm run dev`
+```
+MONGO_URI=
+NEXTAUTH_SECRET=
+GOOGLE_APP_CLIENT_ID=
+GOOGLE_APP_CLIENT_SECRET=
+NEXTAUTH_URL=
+```
 
-You can also place that variable inside a `.ENV` file (don't forget to add it to your `.gitignore` file)
+To create the `NEXTAUTH_SECRET` hash, run this in your terminal:
 
-Since serverless doesn't save variables after an api call, you need to create the connection inside each request if it's not created yet, you can do this by calling the function `connectToDatabase` that is inside utils.
+```
+openssl rand -base64 32
+```
 
-And you are ready to go:)
+It will generate a 44-character random string
 
-(It has an example using Typescript with Mongoose models in the api handlers).
-
----
-
-Some of the libraries used in this project:
-
-[`http-react`](https://http-react.netlify.app/): React hooks for Data fetching
+You can also place those variables inside a `.ENV` file (don't forget to add it to your `.gitignore` file)
 
 
-[`react-kuh`](https://www.npmjs.com/package/react-kuh): TypeScript-ready React (kinda) useful hooks
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanybeltran%2Fnextjs-typescript-and-mongodb)
+
+
+Related documentation:
+
+- [`nextjs`](https://nextjs.org/docs)
+
+- [`next-auth`](https://next-auth.js.org/getting-started/introduction)
+
+- [`http-react`](https://http-react.netlify.app/docs)
 
 
 
