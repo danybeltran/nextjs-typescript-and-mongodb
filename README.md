@@ -2,13 +2,8 @@
 
 A Next.js app that uses Shadcn, Prisma ORM, MongoDB and Next auth
 
-Clone/(Download as zip) this repo, then:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanybeltran%2Fnextjs-typescript-and-mongodb)
 
-`npm install`
-
-or
-
-`yarn`
 
 You need to pass an env. variable with the URI for the MongoDB connection, as well as `next-auth` env. variables:
 
@@ -29,10 +24,6 @@ openssl rand -base64 32
 It will generate a 44-character random string
 
 You can also place those variables inside a `.ENV` file (don't forget to add it to your `.gitignore` file)
-
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanybeltran%2Fnextjs-typescript-and-mongodb)
-
 
 Related documentation:
 
