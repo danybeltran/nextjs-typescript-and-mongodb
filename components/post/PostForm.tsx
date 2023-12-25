@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import useFetch from 'http-react'
-import dynamic from 'next/dynamic'
 import { z } from 'zod'
 import 'easymde/dist/easymde.min.css'
 
@@ -12,7 +11,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { postSchema } from '@/app/schemasValidations'
 import { Alert, AlertTitle } from '@/components/ui/alert'
-import { Skeleton } from '@/components/ui/skeleton'
 import {
   Form,
   FormControl,
@@ -21,12 +19,7 @@ import {
   FormLabel,
   FormMessage
 } from '@/components/ui/form'
-import './simpleMDE-dark.css'
-
-const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
-  ssr: false,
-  loading: () => <Skeleton className='h-[405px] rounded-md' />
-})
+import { Textarea } from '@/components/ui/textarea'
 
 type FormSchema = z.infer<typeof postSchema>
 
@@ -87,7 +80,18 @@ export default function PostForm() {
             <FormItem>
               <FormLabel>Description</FormLabel>
               <FormControl>
-                <SimpleMDE placeholder='Description' {...field} />
+                <Textarea
+                  className='resize-none'
+                  {...field}
+                  onChange={e => {
+                    const heightOffset = 3
+                    e.currentTarget.style.height = 'auto'
+                    e.currentTarget.style.height =
+                      e.currentTarget.scrollHeight + heightOffset + 'px'
+
+                    field.onChange(e)
+                  }}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

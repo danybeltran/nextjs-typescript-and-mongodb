@@ -11,13 +11,19 @@ interface Params {
   params: { id: string }
 }
 
-const fetchPost = cache((postId: string) =>
-  prisma.post.findUnique({ where: { id: postId } })
-)
+const fetchPost = cache((postId: string) => {
+  if (postId.length >= 25) {
+    return null
+  }
+  try {
+    return prisma.post.findFirst({ where: { id: postId } })
+  } catch (err) {
+    return null
+  }
+})
 
 const PostDetailsPage = async ({ params: { id } }: Params) => {
   const post = await fetchPost(id)
-  if (!post) notFound()
 
   return (
     <section>
@@ -25,14 +31,20 @@ const PostDetailsPage = async ({ params: { id } }: Params) => {
         <ArrowLeft size={18} />
         Back
       </Link>
-      <div className='max-w-4xl gap-2 mt-4 mx-auto flex flex-col lg:flex-row'>
-        <div className='flex-[10]'>
-          <PostDetails post={post} />
+      {post ? (
+        <div className='max-w-4xl gap-2 mt-4 mx-auto flex flex-col lg:flex-row'>
+          <div className='flex-[10]'>
+            <PostDetails post={post} />
+          </div>
+          <div className='flex-[2] flex justify-center'>
+            <PostDeleteButton postId={id} />
+          </div>
         </div>
-        <div className='flex-[2] flex justify-center'>
-          <PostDeleteButton postId={id} />
+      ) : (
+        <div className='flex items-center justify-center h-72'>
+          Post not found
         </div>
-      </div>
+      )}
     </section>
   )
 }

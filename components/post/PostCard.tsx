@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
-import { formatDate } from '@/libs/getDate'
+import { formatDate } from '@/lib/getDate'
 import { Button } from '@/components/ui/button'
 import {
   Card,
