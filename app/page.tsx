@@ -4,6 +4,7 @@ import { FaReact } from 'react-icons/fa'
 import { SiPrisma, SiTailwindcss } from 'react-icons/si'
 import { BiLogoMongodb } from 'react-icons/bi'
 import { GoPlus } from 'react-icons/go'
+import { IoLogoGithub, IoLogoVercel } from 'react-icons/io5'
 
 import { Button } from '@/components/ui/button'
 
@@ -18,14 +19,26 @@ export default function Home() {
           <p className='max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8'>
             This is a starter project
           </p>
-
-          <Link
-            href='https://github.com/danybeltran/nextjs-typescript-and-mongodb'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <Button variant='outline'>GitHub</Button>
-          </Link>
+          <div className='flex gap-x-2 *:*:gap-x-2'>
+            <Link
+              href='https://github.com/danybeltran/nextjs-typescript-and-mongodb'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <Button variant='outline'>
+                <IoLogoGithub />
+                GitHub
+              </Button>
+            </Link>
+            <Link
+              target='_blank'
+              href='https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanybeltran%2Fnextjs-typescript-and-mongodb'
+            >
+              <Button>
+                <IoLogoVercel /> Deploy
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
       <section
