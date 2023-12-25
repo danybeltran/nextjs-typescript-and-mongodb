@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 import { Post } from '@prisma/client'
 
-import { formatDate } from '@/libs/getDate'
+import { formatDate } from '@/lib/getDate'
 
 interface Props {
   post: Post
