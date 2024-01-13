@@ -1,7 +1,6 @@
+import { cache } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { cache } from 'react'
 import { prisma } from 'server'
 
 import PostDeleteButton from '@/components/post/PostDeleteButton'

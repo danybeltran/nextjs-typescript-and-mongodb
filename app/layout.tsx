@@ -4,9 +4,9 @@ import { FetchConfig } from 'http-react'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 
-import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import AuthProvider from '@/components/AuthProvider'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
   title: 'Home',
