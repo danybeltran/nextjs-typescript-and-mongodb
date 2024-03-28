@@ -28,10 +28,37 @@ NEXTAUTH_URL=
 
 How to get these variables?
 
+---
+
 - [`MONGO_URI`](https://www.mongodb.com/docs/manual/reference/connection-string/)
+
+The connection string looks something like this:
+
+`mongodb+srv://<user>:<password>@cluster0.<org>.mongodb.net/<database_name>?retryWrites=true&w=majority`
+
+In your cluster, click **Connect**:
+
+![alt text](docs/connect-1.png)
+
+Under the **Connect your application** section, click **Drivers**:
+
+![alt text](docs/drivers.png)
+
+Click the Copy button next to the connection string:
+
+![alt text](docs/connection-string.png)
+
+Replace `<password>` with the password for your user. Ensure any option params are [URL encoded](https://dochub.mongodb.org/core/atlas-url-encoding).
+
+---
+
 - [`GOOGLE_APP_CLIENT_ID` and `GOOGLE_APP_CLIENT_SECRET`](https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid)
 
+---
+
 Use your preferred tool to generate the `NEXTAUTH_SECRET` hash:
+
+Using [This tool](https://generate-secret.vercel.app/32) is the quickest way to generate a hash. You can change the last segment of the url to get a hash of your preferred length, such as `https://generate-secret.vercel.app/44`
 
 **OpenSSL :**
 
