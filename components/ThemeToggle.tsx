@@ -1,38 +1,39 @@
 'use client'
-import { Moon, Sun } from 'lucide-react'
+import { IconType } from 'react-icons'
+import { LuMoon, LuSun, LuMonitor } from 'react-icons/lu'
+
 import { useTheme } from 'next-themes'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { setTheme, theme } = useTheme()
+
+  const nextTheme = {
+    light: 'dark',
+    dark: 'system',
+    system: 'light'
+  }
+
+  const ThemeIcon = {
+    light: LuSun,
+    dark: LuMoon,
+    system: LuMonitor
+  }[theme as string] as IconType
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant='outline' size='icon'>
-          <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-          <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-          <span className='sr-only'>Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
-        <DropdownMenuItem onClick={() => setTheme('light')}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button
+      variant='ghost'
+      className='rounded-full'
+      size='icon'
+      onClick={() => {
+        const newTheme = nextTheme[theme as string]
+
+        setTheme(newTheme)
+      }}
+    >
+      <ThemeIcon className='text-xl' />
+      <span className='sr-only'>Toggle theme</span>
+    </Button>
   )
 }

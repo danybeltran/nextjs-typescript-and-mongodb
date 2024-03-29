@@ -2,6 +2,7 @@ import './globals.css'
 import { AtomicState } from 'atomic-state'
 import { FetchConfig } from 'http-react'
 import { GeistSans } from 'geist/font/sans'
+import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 
 import { ThemeProvider } from '@/components/ThemeProvider'
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
   description: 'Home page '
 }
 
+const InterFont = Inter({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['300', '400', '600', '700', '800', '900']
+})
+
 function MainLayout({ children }) {
   return (
     <html suppressHydrationWarning>
@@ -21,7 +27,7 @@ function MainLayout({ children }) {
         <meta name='description' content='A Starter with Next.js' />
       </head>
 
-      <body className={GeistSans.className}>
+      <body className={InterFont.className}>
         <ThemeProvider attribute='class' defaultTheme='system'>
           <main className='min-h-screen'>
             <AuthProvider>
