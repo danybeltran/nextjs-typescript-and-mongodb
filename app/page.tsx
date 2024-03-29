@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { TbBrandNextjs } from 'react-icons/tb'
-import { FaReact } from 'react-icons/fa'
-import { SiPrisma, SiTailwindcss } from 'react-icons/si'
-import { BiLogoMongodb } from 'react-icons/bi'
 import { GoPlus } from 'react-icons/go'
+import { FaReact } from 'react-icons/fa'
+import { BiLogoMongodb } from 'react-icons/bi'
+import { TbBrandNextjs } from 'react-icons/tb'
+import { SiPrisma, SiTailwindcss } from 'react-icons/si'
 import { IoLogoGithub, IoLogoVercel } from 'react-icons/io5'
 
 import { Button } from '@/components/ui/button'
@@ -16,7 +16,7 @@ export default function Home() {
           <h1 className='font-bold leading-normal text-3xl sm:text-5xl md:text-6xl lg:text-7xl'>
             Welcome to Next.js 14
           </h1>
-          <p className='max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8'>
+          <p className='max-w-[42rem] leading-normal sm:text-xl sm:leading-8'>
             This is a starter project
           </p>
           <div className='flex gap-x-2 *:*:gap-x-2'>

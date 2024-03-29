@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
-import { formatDate } from '@/lib/getDate'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -12,6 +11,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
+import { formatDate } from '@/lib/utils'
 
 type Post = {
   id: string
@@ -28,11 +28,11 @@ const PostCard = ({ post }: Props) => {
   return (
     <Card className='h-fit'>
       <CardHeader>
-        <CardTitle className='line-clamp-1 '>{post.title}</CardTitle>
+        <CardTitle>{post.title}</CardTitle>
         <CardDescription>{formatDate(post.date)}</CardDescription>
       </CardHeader>
       <CardContent>
-        <article className='text-sm prose prose-stone dark:prose-invert line-clamp-1'>
+        <article className='text-sm prose prose-stone dark:prose-invert'>
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </article>
       </CardContent>

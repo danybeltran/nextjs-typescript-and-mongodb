@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import { headers } from 'next/headers'
 import { ArrowLeft } from 'lucide-react'
+import { headers } from 'next/headers'
 
 import { Button } from '@/components/ui/button'
 import PostCard from '@/components/post/PostCard'
+
 import { prisma } from '@/server'
 
 export const revalidate = 0
@@ -15,7 +16,7 @@ export default async function Posts() {
 
   return (
     <section>
-      <Link href='/' className='flex gap-1 items-center '>
+      <Link href='/' className='flex gap-1 items-center max-w-min'>
         <ArrowLeft size={18} />
         Back
       </Link>

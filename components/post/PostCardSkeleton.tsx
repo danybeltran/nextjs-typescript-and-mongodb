@@ -12,7 +12,7 @@ const PostCardSkeleton = () => {
   return (
     <Card className='h-fit'>
       <CardHeader>
-        <CardTitle className='line-clamp-1 '>
+        <CardTitle>
           <Skeleton className='h-6 w-4/5' />
         </CardTitle>
         <CardDescription>

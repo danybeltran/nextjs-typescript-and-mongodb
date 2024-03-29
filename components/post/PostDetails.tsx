@@ -1,13 +1,13 @@
 import ReactMarkdown from 'react-markdown'
 import { Post } from '@prisma/client'
 
-import { formatDate } from '@/lib/getDate'
+import { formatDate } from '@/lib/utils'
 
-interface Props {
+interface PostDetails {
   post: Post
 }
 
-const PostDetails = ({ post }: Props) => {
+const PostDetails = ({ post }: PostDetails) => {
   return (
     <section>
       <header>
