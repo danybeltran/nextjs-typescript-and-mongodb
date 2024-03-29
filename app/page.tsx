@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { TbBrandNextjs } from 'react-icons/tb'
-import { FaReact } from 'react-icons/fa'
-import { SiPrisma, SiTailwindcss } from 'react-icons/si'
-import { BiLogoMongodb } from 'react-icons/bi'
 import { GoPlus } from 'react-icons/go'
+import { FaReact } from 'react-icons/fa'
+import { BiLogoMongodb } from 'react-icons/bi'
+import { TbBrandNextjs } from 'react-icons/tb'
+import { SiPrisma, SiTailwindcss } from 'react-icons/si'
 import { IoLogoGithub, IoLogoVercel } from 'react-icons/io5'
 
 import { Button } from '@/components/ui/button'

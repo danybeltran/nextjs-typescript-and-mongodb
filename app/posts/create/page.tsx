@@ -6,7 +6,7 @@ import PostForm from '@/components/post/PostForm'
 export default function Create() {
   return (
     <section>
-      <Link href='/posts' className='flex gap-1 items-center '>
+      <Link href='/posts' className='flex gap-1 items-center max-w-min'>
         <ArrowLeft size={18} />
         Back
       </Link>
