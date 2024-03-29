@@ -9,17 +9,18 @@ import { Button } from '@/components/ui/button'
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
 
-  const nextTheme = {
+  const nextTheme: any = {
     light: 'dark',
     dark: 'system',
     system: 'light'
   }
 
   const ThemeIcon = {
+    undefined: LuSun,
     light: LuSun,
     dark: LuMoon,
     system: LuMonitor
-  }[theme as string] as IconType
+  }[theme!] as IconType
 
   return (
     <Button
