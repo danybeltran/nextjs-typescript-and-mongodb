@@ -26,7 +26,7 @@ interface Props {
 
 export default function PostCard({ post }: Props) {
   return (
-    <Card className='h-fit'>
+    <Card>
       <CardHeader>
         <CardTitle>{post.title}</CardTitle>
         <CardDescription>{formatDate(post.date)}</CardDescription>
