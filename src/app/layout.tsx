@@ -1,6 +1,7 @@
 import './globals.css'
 import { AtomicState } from 'atomic-state'
 import { FetchConfig } from 'http-react'
+import { GeistSans } from 'geist/font/sans'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 
@@ -26,7 +27,7 @@ export default function MainLayout({ children }) {
         <meta name='description' content='A Starter with Next.js' />
       </head>
 
-      <body className={InterFont.className}>
+      <body className={GeistSans.className}>
         <ThemeProvider attribute='class' defaultTheme='system'>
           <main className='min-h-screen'>
             <AuthProvider>
