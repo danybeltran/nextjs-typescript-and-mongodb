@@ -7,7 +7,7 @@ const versionsDev = {}
 
 console.log('------- DEPENDENCIES -------')
 const installDeps =
-  'yarn add ' +
+  'npm install ' +
   Object.keys(dependencies)
     .map(dep => {
       console.log(dep + ` : (${dependencies[dep]})`)
@@ -20,7 +20,7 @@ const installDeps =
 console.log('\n------- DEV DEPENDENCIES -------')
 
 const installDevDeps =
-  'yarn add -D ' +
+  'npm install -D ' +
   Object.keys(devDependencies)
     .map(dep => {
       console.log(dep + ` : (${devDependencies[dep]})`)
