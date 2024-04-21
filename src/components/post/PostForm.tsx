@@ -3,7 +3,7 @@ import { AlertCircle, Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import useFetch from 'http-react'
+import useFetch, { useServerAction } from 'http-react'
 import { z } from 'zod'
 import 'easymde/dist/easymde.min.css'
 
@@ -23,6 +23,8 @@ import { Textarea } from '@/components/ui/textarea'
 
 type FormSchema = z.infer<typeof postSchema>
 
+import { savePost } from '@/app/posts/actions'
+
 export default function PostForm() {
   const router = useRouter()
 
@@ -38,13 +40,13 @@ export default function PostForm() {
     reFetch: createPost,
     loading: isCreatingPost,
     error
-  } = useFetch('/posts', {
-    method: 'POST',
+  } = useServerAction(savePost, {
     auto: false,
-    body: form.getValues(),
+    params: {
+      post: form.getValues()
+    },
     onResolve() {
       router.replace('/posts')
-      router.refresh()
     }
   })
 

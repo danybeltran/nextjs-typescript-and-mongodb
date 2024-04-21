@@ -1,5 +1,5 @@
 'use client'
-import useFetch from 'http-react'
+import { useServerAction } from 'http-react'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -15,6 +15,7 @@ import {
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
+import { deletePost } from '@/app/posts/actions'
 
 interface Props {
   postId: string
@@ -23,23 +24,14 @@ interface Props {
 export default function PostDeleteButton({ postId }: Props) {
   const router = useRouter()
 
-  const { reFetch: handleDelete, loading: isDeleting } = useFetch(
-    '/posts/[postId]',
+  const { reFetch: handleDelete, loading: isDeleting } = useServerAction(
+    deletePost,
     {
       method: 'DELETE',
-      id: {
-        postId
-      },
+      params: postId,
       auto: false,
-      params: {
-        postId
-      },
       onResolve() {
         router.replace('/posts')
-        router.refresh()
-      },
-      onError(err) {
-        console.log(err)
       }
     }
   )
