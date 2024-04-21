@@ -1,10 +1,8 @@
-import ReactMarkdown from 'react-markdown'
-import { Post } from '@prisma/client'
-
 import { formatDate } from '@/lib/utils'
+import { Types } from '@/types'
 
 interface PostDetails {
-  post: Post
+  post: Types.Post
 }
 
 export default function PostDetails({ post }: PostDetails) {
@@ -19,12 +17,12 @@ export default function PostDetails({ post }: PostDetails) {
           dateTime={post.date.toDateString()}
           className='block text-sm text-muted-foreground'
         >
-          Published on {formatDate(post.date)}
+          Created on {formatDate(post.date)}
         </time>
       </header>
 
       <article className='my-8 sm:text-lg prose prose-stone dark:prose-invert'>
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        {post.content}
       </article>
     </section>
   )

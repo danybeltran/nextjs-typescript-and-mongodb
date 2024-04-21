@@ -15,7 +15,8 @@ import {
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
-import { deletePost } from '@/app/posts/actions'
+
+import { deletePost } from './actions'
 
 interface Props {
   postId: string
@@ -24,28 +25,22 @@ interface Props {
 export default function PostDeleteButton({ postId }: Props) {
   const router = useRouter()
 
-  const { reFetch: handleDelete, loading: isDeleting } = useServerAction(
-    deletePost,
-    {
-      method: 'DELETE',
-      params: postId,
-      auto: false,
-      onResolve() {
-        router.replace('/posts')
-      }
-    }
-  )
+  const { reFetch, loading } = useServerAction(deletePost, {
+    params: postId,
+    auto: false,
+    onResolve: () => router.replace('/posts')
+  })
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button
-          disabled={isDeleting}
+          disabled={loading}
           className='w-80 lg:w-full'
           size='sm'
           variant='outline'
         >
-          {isDeleting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+          {loading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
           Delete
         </Button>
       </AlertDialogTrigger>
@@ -58,7 +53,7 @@ export default function PostDeleteButton({ postId }: Props) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
+          <AlertDialogAction onClick={reFetch}>Delete</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

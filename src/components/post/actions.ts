@@ -1,10 +1,10 @@
 'use server'
-
-import { prisma } from '@/lib/prisma'
-import { postSchema } from '../schemasValidations'
 import { revalidatePath } from 'next/cache'
 
-export async function savePost({ post }) {
+import { prisma } from '@/lib/prisma'
+import { postSchema } from './schema'
+
+export async function createPost({ post }) {
   try {
     const validation = postSchema.safeParse(post)
 
@@ -42,8 +42,7 @@ export async function deletePost(id: string) {
     revalidatePath('/posts')
 
     return {
-      data: deletedPost,
-      status: 201
+      data: deletedPost
     }
   } catch {
     return {

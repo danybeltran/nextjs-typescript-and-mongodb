@@ -3,13 +3,11 @@ import { AlertCircle, Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import useFetch, { useServerAction } from 'http-react'
+import { useServerAction } from 'http-react'
 import { z } from 'zod'
-import 'easymde/dist/easymde.min.css'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { postSchema } from '@/app/schemasValidations'
 import { Alert, AlertTitle } from '@/components/ui/alert'
 import {
   Form,
@@ -21,9 +19,10 @@ import {
 } from '@/components/ui/form'
 import { Textarea } from '@/components/ui/textarea'
 
-type FormSchema = z.infer<typeof postSchema>
+import { createPost } from './actions'
+import { postSchema } from './schema'
 
-import { savePost } from '@/app/posts/actions'
+type FormSchema = z.infer<typeof postSchema>
 
 export default function PostForm() {
   const router = useRouter()
@@ -36,21 +35,15 @@ export default function PostForm() {
     }
   })
 
-  const {
-    reFetch: createPost,
-    loading: isCreatingPost,
-    error
-  } = useServerAction(savePost, {
+  const { reFetch, loading, error } = useServerAction(createPost, {
     auto: false,
     params: {
       post: form.getValues()
     },
-    onResolve() {
-      router.replace('/posts')
-    }
+    onResolve: () => router.replace('/posts')
   })
 
-  const onSubmit = form.handleSubmit(createPost)
+  const onSubmit = form.handleSubmit(reFetch)
 
   return (
     <Form {...form}>
@@ -69,7 +62,7 @@ export default function PostForm() {
             <FormItem>
               <FormLabel>Title</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input placeholder='Post title' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -84,6 +77,7 @@ export default function PostForm() {
               <FormControl>
                 <Textarea
                   className='resize-none'
+                  placeholder='Post description'
                   {...field}
                   onChange={e => {
                     const heightOffset = 3
@@ -100,10 +94,8 @@ export default function PostForm() {
           )}
         />
         <div className='flex justify-end'>
-          <Button disabled={isCreatingPost} type='submit'>
-            {isCreatingPost && (
-              <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-            )}
+          <Button disabled={loading} type='submit'>
+            {loading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
             Create Post
           </Button>
         </div>
