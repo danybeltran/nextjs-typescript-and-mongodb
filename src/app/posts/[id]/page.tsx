@@ -1,17 +1,18 @@
+import { cache } from 'react'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-import { prisma } from '@/lib/prisma'
-import { cache } from 'react'
 
 import PostDeleteButton from '@/components/post/PostDeleteButton'
 import PostDetails from '@/components/post/PostDetails'
+
+import { prisma } from '@/lib/prisma'
 
 export async function generateMetadata(props: PostPageProps) {
   const post = await getPost(props)
 
   return {
-    title: post?.title,
-    description: 'Details of issue ' + post?.id
+    title: 'Post: ' + post?.title,
+    description: 'Details for post ' + post?.id
   }
 }
 
