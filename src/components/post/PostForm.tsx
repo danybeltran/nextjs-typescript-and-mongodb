@@ -3,7 +3,7 @@ import { AlertCircle, Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useServerAction } from 'http-react'
+import { useServerMutation } from 'http-react'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
@@ -35,8 +35,7 @@ export default function PostForm() {
     }
   })
 
-  const { reFetch, loading, error } = useServerAction(createPost, {
-    auto: false,
+  const { reFetch, loading, error } = useServerMutation(createPost, {
     params: {
       post: form.getValues()
     },

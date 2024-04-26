@@ -2,7 +2,6 @@ import './globals.css'
 import { AtomicState } from 'atomic-state'
 import { FetchConfig } from 'http-react'
 import { GeistSans } from 'geist/font/sans'
-import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 
 import { ThemeProvider } from '@/components/ThemeProvider'
@@ -13,11 +12,6 @@ export const metadata: Metadata = {
   title: 'Home',
   description: 'Home page '
 }
-
-const InterFont = Inter({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '600', '700', '800', '900']
-})
 
 export default function MainLayout({ children }) {
   return (
