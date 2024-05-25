@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { BrowserOnly } from 'react-kuh'
+import { BrowserOnly } from 'atomic-utils'
 
 import { ThemeToggle } from '@/components/ThemeToggle'
 import AuthButton from '@/components/AuthButton'

@@ -1,6 +1,5 @@
 import './globals.css'
-import { AtomicState } from 'atomic-state'
-import { FetchConfig } from 'http-react'
+import { AtomicState, FetchConfig } from 'atomic-utils'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 
