@@ -1,9 +1,9 @@
 'use server'
 import { revalidatePath } from 'next/cache'
+import { actionData } from 'atomic-utils'
 
 import { prisma } from '@/lib/prisma'
-import { postSchema } from './schema'
-import { actionResult } from 'http-react'
+import { postSchema } from '@/schemas'
 
 export async function createPost({ post }) {
   try {
@@ -16,10 +16,10 @@ export async function createPost({ post }) {
 
       revalidatePath('/posts')
 
-      return actionResult(newPost)
+      return actionData(newPost)
     }
 
-    return actionResult(validation.error.format(), {
+    return actionData(validation.error.format(), {
       status: 400
     })
   } catch {
@@ -44,7 +44,7 @@ export async function deletePost(id: string) {
      * The code below will be formated as { data: deletedPost, status: 200 }.
      * You can ommit the status part like this `return actionResult(deletedPost)`
      */
-    return actionResult(deletedPost, {
+    return actionData(deletedPost, {
       status: 200
     })
   } catch {

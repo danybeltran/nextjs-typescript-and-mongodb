@@ -1,5 +1,5 @@
 'use client'
-import { useServerMutation } from 'http-react'
+import { useServerMutation } from 'atomic-utils'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
 
-import { deletePost } from './actions'
+import { deletePost } from '@/actions/post'
 
 interface Props {
   postId: string

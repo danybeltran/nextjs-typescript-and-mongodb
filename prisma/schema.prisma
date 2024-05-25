@@ -8,8 +8,8 @@ generator client {
 }
 
 model Post {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  date      DateTime @default(now())
-  content   String
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  date    DateTime @default(now())
+  content String
 }
