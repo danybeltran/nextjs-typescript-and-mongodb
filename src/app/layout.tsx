@@ -1,11 +1,9 @@
-import './globals.css'
 import { AtomicState, FetchConfig } from 'atomic-utils'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
+import './globals.css'
 
-import { ThemeProvider } from '@/components/ThemeProvider'
-import AuthProvider from '@/components/AuthProvider'
-import Navbar from '@/components/Navbar'
+import { AuthProvider, Navbar, ThemeProvider } from '@/components/layout'
 
 export const metadata: Metadata = {
   title: 'Home',
