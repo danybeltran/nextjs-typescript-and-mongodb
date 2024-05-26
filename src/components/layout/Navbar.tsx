@@ -2,8 +2,7 @@
 import Link from 'next/link'
 import { BrowserOnly } from 'atomic-utils'
 
-import { ThemeToggle } from '@/components/ThemeToggle'
-import AuthButton from '@/components/AuthButton'
+import { ThemeToggle, AuthButton } from '@/components/layout'
 
 export default function Navbar() {
   return (

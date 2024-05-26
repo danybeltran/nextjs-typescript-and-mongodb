@@ -1,6 +1,6 @@
 'use client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useServerMutation } from 'atomic-utils'
+import { useMutation } from 'atomic-utils'
 import { AlertCircle, Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
@@ -35,7 +35,7 @@ export default function PostForm() {
     }
   })
 
-  const { reFetch, loading, error } = useServerMutation(createPost, {
+  const { reFetch, loading, error } = useMutation(createPost, {
     params: {
       post: form.getValues()
     },
