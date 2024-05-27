@@ -35,14 +35,14 @@ export default function PostForm() {
     }
   })
 
-  const { reFetch, loading, error } = useMutation(createPost, {
+  const { refresh, loading, error } = useMutation(createPost, {
     params: {
       post: form.getValues()
     },
     onResolve: () => router.replace('/posts')
   })
 
-  const onSubmit = form.handleSubmit(reFetch)
+  const onSubmit = form.handleSubmit(refresh)
 
   return (
     <Form {...form}>
