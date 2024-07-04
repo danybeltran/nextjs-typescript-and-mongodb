@@ -1,6 +1,6 @@
 'use server'
 import { revalidatePath } from 'next/cache'
-import { actionData } from 'atomic-utils'
+import { actionData } from 'http-react'
 
 import { prisma } from '@/lib/prisma'
 import { postSchema } from '@/schemas'

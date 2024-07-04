@@ -1,9 +1,11 @@
-import { AtomicState, FetchConfig } from 'atomic-utils'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import './globals.css'
 
 import { AuthProvider, Navbar, ThemeProvider } from '@/components/layout'
+
+import { AtomicState } from 'atomic-state'
+import { FetchConfig } from 'http-react'
 
 export const metadata: Metadata = {
   title: 'Home',
