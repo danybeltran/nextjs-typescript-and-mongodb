@@ -5,7 +5,7 @@ import { actionData } from 'http-react'
 import { prisma } from '@/lib/prisma'
 import { postSchema } from '@/schemas'
 
-export async function createPost({ post }) {
+export async function createPost(post: any) {
   try {
     const validation = postSchema.safeParse(post)
 

@@ -35,11 +35,14 @@ export default function PostForm() {
     }
   })
 
+  // To learn how to use the `useMutation` hook with server actions
+  // visit https://httpr.vercel.app/docs/server_actions#server-mutations
+
   const { refresh, loading, error } = useMutation(createPost, {
-    params: {
-      post: form.getValues()
-    },
-    onResolve: () => router.replace('/posts')
+    params: form.getValues(),
+    onResolve() {
+      router.replace('/posts')
+    }
   })
 
   const onSubmit = form.handleSubmit(refresh)
