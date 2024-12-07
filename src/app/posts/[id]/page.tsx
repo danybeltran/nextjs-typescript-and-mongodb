@@ -19,6 +19,8 @@ export async function generateMetadata(props: PostPageProps) {
 export default async function PostDetailsPage(props: PostPageProps) {
   const post = await getPost(props)
 
+  const params = await props.params
+
   return (
     <section>
       <Link href='/posts' className='flex gap-1 items-center max-w-min'>
@@ -31,7 +33,7 @@ export default async function PostDetailsPage(props: PostPageProps) {
             <PostDetails post={post} />
           </div>
           <div className='flex-[2] flex justify-center'>
-            <PostDeleteButton postId={props.params.id} />
+            <PostDeleteButton postId={params.id} />
           </div>
         </div>
       ) : (
@@ -43,11 +45,12 @@ export default async function PostDetailsPage(props: PostPageProps) {
   )
 }
 
-const getPost = cache((props: PostPageProps) => {
+const getPost = cache(async (props: PostPageProps) => {
+  const params = await props.params
   try {
     return prisma.post.findFirst({
       where: {
-        id: props.params.id
+        id: params.id
       }
     })
   } catch (err) {
@@ -56,5 +59,5 @@ const getPost = cache((props: PostPageProps) => {
 })
 
 interface PostPageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
