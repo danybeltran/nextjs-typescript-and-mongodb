@@ -5,6 +5,8 @@ import { LuMoon, LuSun, LuMonitor } from 'react-icons/lu'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
+import Cookies from 'js-cookie'
+import { BrowserOnly } from 'react-kuh'
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
@@ -30,11 +32,13 @@ export function ThemeToggle() {
       suppressHydrationWarning
       onClick={() => {
         const newTheme = nextTheme[theme as string]
-
+        Cookies.set('theme', newTheme)
         setTheme(newTheme)
       }}
     >
-      <ThemeIcon className='text-xl' suppressHydrationWarning />
+      <BrowserOnly>
+        <ThemeIcon className='text-xl' suppressHydrationWarning />
+      </BrowserOnly>
       <span className='sr-only'>Toggle theme</span>
     </Button>
   )

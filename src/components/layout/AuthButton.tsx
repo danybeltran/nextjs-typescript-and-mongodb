@@ -13,15 +13,19 @@ import { Button } from '@/components/ui/button'
 
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useUser } from '@/hooks'
 
 export default function AuthButton() {
-  const { data } = useSession()
-  return data?.user ? (
+  const { data } = useUser()
+
+  return data.user ? (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar className='w-8 h-8'>
-          <AvatarImage src={data?.user?.image!} alt='@shadcn' />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarImage src={data.user.image} alt='@shadcn' />
+          <AvatarFallback>
+            <img src={data.user.image} alt='' />
+          </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
