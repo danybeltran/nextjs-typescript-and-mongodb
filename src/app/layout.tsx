@@ -6,13 +6,17 @@ import { AuthProvider, Navbar, ThemeProvider } from '@/components/layout'
 
 import { AtomicState } from 'atomic-state'
 import { FetchConfig } from 'http-react'
+import { getServerSession } from 'next-auth'
+import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Home',
   description: 'Home page '
 }
 
-export default function MainLayout({ children }) {
+export default async function MainLayout({ children }) {
+  const session = await getServerSession()
+
   return (
     <html suppressHydrationWarning>
       <head>
@@ -21,11 +25,20 @@ export default function MainLayout({ children }) {
       </head>
 
       <body className={GeistSans.className}>
-        <ThemeProvider attribute='class' defaultTheme='system'>
+        <ThemeProvider attribute='class'>
           <main className='min-h-screen'>
             <AuthProvider>
               <AtomicState>
-                <FetchConfig baseUrl='/api'>
+                <FetchConfig
+                  baseUrl='/api'
+                  value={
+                    session
+                      ? {
+                          'GET /auth/session': session
+                        }
+                      : {}!
+                  }
+                >
                   <Navbar />
                   <div className='max-w-screen-2xl mx-auto py-8 px-6 md:px-8'>
                     {children}
