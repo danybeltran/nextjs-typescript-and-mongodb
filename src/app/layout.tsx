@@ -4,10 +4,9 @@ import './globals.css'
 
 import { AuthProvider, Navbar, ThemeProvider } from '@/components/layout'
 
-import { AtomicState } from 'atomic-state'
-import { FetchConfig } from 'http-react'
+import { AtomicState } from 'atomic-utils'
+import { FetchConfig } from 'atomic-utils'
 import { getServerSession } from 'next-auth'
-import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Home',

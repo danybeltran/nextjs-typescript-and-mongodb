@@ -1,5 +1,5 @@
 'use client'
-import { useMutation } from 'http-react'
+import { useMutation } from 'atomic-utils'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 

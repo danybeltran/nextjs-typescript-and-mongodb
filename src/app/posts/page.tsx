@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import PostCard from '@/components/post/PostCard'
 
 import { prisma } from '@/lib/prisma'
-import { RenderList } from 'react-kuh'
+import { RenderList } from 'atomic-utils'
 
 export const revalidate = 0
 

@@ -21,7 +21,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "ui": ["./src/components/ui/index"]
     },
     "strictNullChecks": true
   },

@@ -11,14 +11,31 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 
-import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useUser } from '@/hooks'
+import { useSecondRender } from 'atomic-utils'
+
+function getSigninUrl() {
+  return '/api/auth/signin?callbackUrl=' + location.href
+}
 
 export default function AuthButton() {
   const { data } = useUser()
+  const secondRender = useSecondRender()
 
-  return data.user ? (
+  const signinUrl = secondRender ? getSigninUrl() : '/api/auth/signin'
+
+  if (!data) {
+    return (
+      <Link href={signinUrl}>
+        <Button size='icon' variant='ghost'>
+          <IoIosLogIn className='text-2xl' />
+        </Button>
+      </Link>
+    )
+  }
+
+  return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar className='w-8 h-8'>
@@ -31,16 +48,12 @@ export default function AuthButton() {
       <DropdownMenuContent>
         <DropdownMenuLabel>{data?.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <Link href='/api/auth/signout'>Logout</Link>
+        <DropdownMenuItem className='p-0'>
+          <Link href='/api/auth/signout' className='w-full px-2 py-1.5'>
+            Logout
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  ) : (
-    <Link href='/api/auth/signin'>
-      <Button size='icon' variant='ghost'>
-        <IoIosLogIn className='text-2xl' />
-      </Button>
-    </Link>
   )
 }
