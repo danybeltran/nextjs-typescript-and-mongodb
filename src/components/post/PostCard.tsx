@@ -2,15 +2,15 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
-import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card'
+  CardTitle,
+  Button
+} from '@/components/ui'
 import { formatDate } from '@/lib/utils'
 
 type Post = {

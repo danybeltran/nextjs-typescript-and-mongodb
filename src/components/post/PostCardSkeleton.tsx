@@ -3,9 +3,9 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
+  CardTitle,
+  Skeleton
+} from '@/components/ui'
 
 export default function PostCardSkeleton() {
   return (

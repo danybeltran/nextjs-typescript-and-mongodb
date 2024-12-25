@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Drawer as DrawerPrimitive } from "vaul"
 
-import { cn } from "src/lib/utils"
+import { cn } from "atomic-utils"
 
 const Drawer = ({
   shouldScaleBackground = true,

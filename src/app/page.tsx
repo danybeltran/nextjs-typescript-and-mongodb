@@ -6,7 +6,7 @@ import { TbBrandNextjs } from 'react-icons/tb'
 import { SiPrisma, SiTailwindcss } from 'react-icons/si'
 import { IoLogoGithub, IoLogoVercel } from 'react-icons/io5'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui'
 
 export default function Page() {
   return (
