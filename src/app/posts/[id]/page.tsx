@@ -2,8 +2,8 @@ import { cache } from 'react'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
-import PostDeleteButton from '@/components/post/PostDeleteButton'
-import PostDetails from '@/components/post/PostDetails'
+import PostDeleteButton from '@/components/post/post-delete-button'
+import PostDetails from '@/components/post/post-details'
 
 import { prisma } from '@/lib/prisma'
 

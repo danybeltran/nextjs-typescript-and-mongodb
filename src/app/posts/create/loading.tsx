@@ -1,6 +1,6 @@
 import { ArrowLeft } from 'lucide-react'
 
-import PostFormSkeleton from '@/components/post/PostFormSkeleton'
+import PostFormSkeleton from '@/components/post/post-form-skeleton'
 
 export default function CreateLoading() {
   return (

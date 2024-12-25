@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react'
 import { headers } from 'next/headers'
 
 import { Button } from '@/components/ui'
-import PostCard from '@/components/post/PostCard'
+import PostCard from '@/components/post/post-card'
 
 import { prisma } from '@/lib/prisma'
 import { RenderList } from 'atomic-utils'
