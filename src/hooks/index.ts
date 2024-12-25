@@ -1,4 +1,4 @@
-import useFetch from 'http-react'
+import { useFetch } from 'atomic-utils'
 
 export function useUser() {
   return useFetch<{
@@ -9,9 +9,6 @@ export function useUser() {
     }
     expires: string
   }>('/auth/session', {
-    default: {
-      user: null!,
-      expires: null!
-    }
+    maxCacheAge: '15 sec'
   })
 }

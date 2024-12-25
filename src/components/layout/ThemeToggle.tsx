@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
 import Cookies from 'js-cookie'
-import { BrowserOnly } from 'react-kuh'
+import { BrowserOnly } from 'atomic-utils'
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
