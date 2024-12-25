@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { headers } from 'next/headers'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui'
 import PostCard from '@/components/post/PostCard'
 
 import { prisma } from '@/lib/prisma'

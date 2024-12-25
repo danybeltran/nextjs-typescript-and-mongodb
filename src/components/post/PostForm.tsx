@@ -5,19 +5,21 @@ import { AlertCircle, Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { Types } from '@/types'
 
-import { Alert, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+  FormMessage,
+  Alert,
+  AlertTitle,
+  Button,
+  Input,
+  Textarea
+} from '@/components/ui'
 
 import { createPost } from '@/actions/post'
 import { postSchema } from '@/schemas'
@@ -40,8 +42,8 @@ export default function PostForm() {
 
   const { refresh, loading, error } = useMutation(createPost, {
     params: form.getValues(),
-    onResolve() {
-      router.replace('/posts')
+    onResolve(data: Types.Post) {
+      router.replace('/posts/' + data.id)
     }
   })
 

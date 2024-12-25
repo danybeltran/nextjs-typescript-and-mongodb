@@ -1,8 +1,9 @@
 'use client'
 
-import { Button } from '@/components/ui'
 import { useUser } from '@/hooks'
 import Link from 'next/link'
+
+import { Button } from '@/components/ui'
 
 export default function ProfilePage() {
   const { data } = useUser()
