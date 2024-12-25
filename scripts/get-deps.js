@@ -15,7 +15,7 @@ const installDeps =
       return dep
     })
     .join('@latest ') +
-  '@latest'
+  '@latest -f'
 
 console.log('\n------- DEV DEPENDENCIES -------')
 
@@ -28,7 +28,7 @@ const installDevDeps =
       return dep
     })
     .join('@latest ') +
-  '@latest'
+  '@latest -f'
 
 fs.writeFile(
   path.join(__dirname, './installdeps.sh'),

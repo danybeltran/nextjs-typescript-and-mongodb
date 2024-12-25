@@ -1,6 +1,6 @@
 import { ArrowLeft } from 'lucide-react'
 
-import PostCardSkeleton from '@/components/post/PostCardSkeleton'
+import PostCardSkeleton from '@/components/post/post-card-skeleton'
 import { Button } from '@/components/ui'
 
 export default function PostsLoading() {
