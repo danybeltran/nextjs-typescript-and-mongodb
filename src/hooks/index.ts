@@ -9,6 +9,12 @@ export function useUser() {
     }
     expires: string
   }>('/auth/session', {
-    maxCacheAge: '15 sec'
+    maxCacheAge: '15 sec',
+    transform(data) {
+      if (!data?.user) {
+        return null!
+      }
+      return data
+    }
   })
 }
