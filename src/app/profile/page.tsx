@@ -4,6 +4,7 @@ import { useUser } from '@/hooks'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui'
+import SigninDialog from '@/components/layout/signin-dialog'
 
 export default function ProfilePage() {
   const { data } = useUser()
@@ -13,9 +14,10 @@ export default function ProfilePage() {
       <div>
         <section className='space-y-2'>
           <h2 className='font-semibold'>You haven't logged in</h2>
-          <Link href='/api/auth/signin?callbackUrl=/profile'>
+          <SigninDialog>
             <Button>Login now</Button>
-          </Link>
+          </SigninDialog>
+          <Link href='/api/auth/signin?callbackUrl=/profile'></Link>
         </section>
       </div>
     )

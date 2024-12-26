@@ -1,6 +1,7 @@
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import './globals.css'
+import 'bs-icon/icons.css'
 
 import { AuthProvider, Navbar, ThemeProvider } from '@/components/layout'
 
