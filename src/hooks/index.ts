@@ -11,10 +11,7 @@ export function useUser() {
   }>('/auth/session', {
     maxCacheAge: '15 sec',
     transform(data) {
-      if (!data?.user) {
-        return null!
-      }
-      return data
+      return 'user' in data ? data : null!
     }
   })
 }
