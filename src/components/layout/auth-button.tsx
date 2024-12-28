@@ -61,6 +61,7 @@ export default function AuthButton() {
             You will be signed out of your account
           </AlertDialogDescription>
           <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={() =>
                 signOut({
@@ -68,10 +69,9 @@ export default function AuthButton() {
                 })
               }
             >
-              <Icon name='box-arrow-left' />
-              Sign out{' '}
+              Sign out
+              <Icon name='box-arrow-right' />
             </AlertDialogAction>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
@@ -92,9 +92,7 @@ export default function AuthButton() {
             className='cursor-pointer'
             onClick={() => setShowSignoutDialog(true)}
           >
-            {/* <Link href='/api/auth/signout' className='w-full px-2 py-1.5'> */}
             Logout
-            {/* </Link> */}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
