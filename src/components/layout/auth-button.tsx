@@ -23,31 +23,25 @@ import {
 } from '@/components/ui'
 
 import Link from 'next/link'
-import { useUser } from '@/hooks'
+import { usePreferences, useUser } from '@/hooks'
 import { useSecondRender } from 'atomic-utils'
 import { useState } from 'react'
 import { signOut } from 'next-auth/react'
 import Icon from 'bs-icon'
 import SigninDialog from './signin-dialog'
 
-function getSigninUrl() {
-  return '/api/auth/signin?callbackUrl=' + location.href
-}
-
 export default function AuthButton() {
-  const { data } = useUser()
-  const secondRender = useSecondRender()
+  const { data: user } = useUser()
+  const { data: preferences } = usePreferences()
 
   const [showSignoutDialog, setShowSignoutDialog] = useState(false)
 
-  const signinUrl = secondRender ? getSigninUrl() : '/api/auth/signin'
-
-  if (!data) {
+  if (!user) {
     return (
       <SigninDialog>
-        <Button size='icon' variant='ghost'>
-          <IoIosLogIn className='text-2xl' />
-        </Button>
+        <button className='rounded-full text-xl p-2'>
+          <IoIosLogIn />
+        </button>
       </SigninDialog>
     )
   }
@@ -78,14 +72,14 @@ export default function AuthButton() {
       <DropdownMenu>
         <DropdownMenuTrigger>
           <Avatar className='w-8 h-8'>
-            <AvatarImage src={data.user.image} alt='@shadcn' />
+            <AvatarImage src={preferences.user_profile_picture} alt='@shadcn' />
             <AvatarFallback>
-              <img src={data.user.image} alt='' />
+              <img src={preferences.user_profile_picture} alt='' />
             </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuLabel>{data?.user?.name}</DropdownMenuLabel>
+          <DropdownMenuLabel>{preferences.user_fullname}</DropdownMenuLabel>
           <DropdownMenuSeparator />
 
           <DropdownMenuItem

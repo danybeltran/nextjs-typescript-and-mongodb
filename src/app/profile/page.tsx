@@ -1,15 +1,17 @@
 'use client'
 
-import { useUser } from '@/hooks'
+import { usePreferences, useUser } from '@/hooks'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui'
 import SigninDialog from '@/components/layout/signin-dialog'
+import { revalidate } from 'atomic-utils'
 
 export default function ProfilePage() {
-  const { data } = useUser()
+  const { data: user } = useUser()
+  const { data: preferences } = usePreferences()
 
-  if (!data) {
+  if (!user) {
     return (
       <div>
         <section className='space-y-2'>
@@ -25,15 +27,20 @@ export default function ProfilePage() {
 
   return (
     <div className='space-y-6'>
+      <Button onClick={() => revalidate('User')}>Refresh</Button>
       <section>
-        <img src={data.user.image} alt='' className='rounded' />
+        <img
+          src={preferences.user_profile_picture}
+          alt=''
+          className='rounded'
+        />
         <h2 className='font-semibold'>Info</h2>
-        <p>Name: {data.user.name}</p>
-        <p>Email: {data.user.email}</p>
+        <p>Name: {preferences.user_fullname}</p>
+        <p>Email: {preferences.user_email}</p>
       </section>
       <section>
         <p className='font-semibold'>Raw data</p>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <pre>{JSON.stringify({ user, preferences }, null, 2)}</pre>
       </section>
     </div>
   )

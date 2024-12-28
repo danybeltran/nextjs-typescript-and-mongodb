@@ -35,7 +35,7 @@ export default function SigninDialog({
       <DialogTrigger asChild={children ? true : false}>
         {children || <Button>Sign in</Button>}
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className='max-w-[90%] md:max-w-lg rounded-xl'>
         <DialogTitle>Sign in to your account</DialogTitle>
 
         <DialogDescription>
