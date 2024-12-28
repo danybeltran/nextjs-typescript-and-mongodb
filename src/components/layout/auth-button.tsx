@@ -36,7 +36,6 @@ function getSigninUrl() {
 
 export default function AuthButton() {
   const { data } = useUser()
-  const secondRender = useSecondRender()
 
   const [showSignoutDialog, setShowSignoutDialog] = useState(false)
 
