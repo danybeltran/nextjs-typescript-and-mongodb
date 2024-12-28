@@ -30,10 +30,6 @@ import { signOut } from 'next-auth/react'
 import Icon from 'bs-icon'
 import SigninDialog from './signin-dialog'
 
-function getSigninUrl() {
-  return '/api/auth/signin?callbackUrl=' + location.href
-}
-
 export default function AuthButton() {
   const { data } = useUser()
 
