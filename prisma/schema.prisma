@@ -13,3 +13,13 @@ model Post {
   date    DateTime @default(now())
   content String
 }
+
+model Preferences {
+  id                   String @id @default(auto()) @map("_id") @db.ObjectId
+  user_email           String
+  user_fullname        String
+  user_profile_picture String
+  username             String
+  user_description     String
+  // Add more customizations
+}

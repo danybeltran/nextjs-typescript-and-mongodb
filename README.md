@@ -23,8 +23,10 @@ MONGO_URI=
 NEXTAUTH_SECRET=
 GOOGLE_APP_CLIENT_ID=
 GOOGLE_APP_CLIENT_SECRET=
-NEXTAUTH_URL=
+NEXTAUTH_URL=http://localhost:3000
 ```
+
+(You don't need `NEXTAUTH_URL` if you are deploying to Vercel)
 
 How to get these variables?
 

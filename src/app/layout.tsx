@@ -7,7 +7,9 @@ import { AuthProvider, Navbar, ThemeProvider } from '@/components/layout'
 
 import { AtomicState } from 'atomic-utils'
 import { FetchConfig } from 'atomic-utils'
-import { getServerSession } from 'next-auth'
+import { getServerSession, Session } from 'next-auth'
+import { prisma } from '@/lib/prisma'
+import { getUserPreferences } from '@/lib/preferences'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 
 export default async function MainLayout({ children }) {
   const session = await getServerSession()
+
+  const preferences = await getUserPreferences()
 
   return (
     <html suppressHydrationWarning>
@@ -31,13 +35,10 @@ export default async function MainLayout({ children }) {
               <AtomicState>
                 <FetchConfig
                   baseUrl='/api'
-                  value={
-                    session
-                      ? {
-                          'GET /auth/session': session
-                        }
-                      : {}!
-                  }
+                  value={{
+                    User: session ?? {},
+                    Preferences: preferences ?? {}
+                  }}
                 >
                   <Navbar />
                   <div className='max-w-screen-2xl mx-auto py-8 px-6 md:px-8 overflow-x-auto'>

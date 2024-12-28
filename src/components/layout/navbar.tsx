@@ -62,7 +62,7 @@ function MobileMenu() {
             <Icon name='list' className='text-lg' />
           </Button>
         </DialogTrigger>
-        <DialogContent className='h-full max-w-screen w-screen dark:bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60'>
+        <DialogContent className='h-full max-w-screen w-screen dark:bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60 rounded-none'>
           <DialogTitle className='h-0 hidden'></DialogTitle>
           <DialogDescription className='h-0 hidden'></DialogDescription>
           <div className='flex flex-col items-center pt-16 gap-y-6'>
@@ -80,7 +80,7 @@ function MobileMenu() {
                 <Link
                   key={'mobile' + link.href}
                   onClick={hideMenu}
-                  className={cn(getLinkStyle(link.href), 'text-xl')}
+                  className={cn(getLinkStyle(link.href), 'text-lg')}
                   {...link}
                 />
               )}
