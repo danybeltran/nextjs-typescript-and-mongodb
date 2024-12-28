@@ -40,14 +40,12 @@ export default function AuthButton() {
 
   const [showSignoutDialog, setShowSignoutDialog] = useState(false)
 
-  const signinUrl = secondRender ? getSigninUrl() : '/api/auth/signin'
-
   if (!data) {
     return (
       <SigninDialog>
-        <Button size='icon' variant='ghost'>
-          <IoIosLogIn className='text-2xl' />
-        </Button>
+        <button className='rounded-full text-xl p-2'>
+          <IoIosLogIn />
+        </button>
       </SigninDialog>
     )
   }

@@ -85,6 +85,7 @@ function MobileMenu() {
                 />
               )}
             />
+            <AuthButton />
           </div>
         </DialogContent>
       </Dialog>
