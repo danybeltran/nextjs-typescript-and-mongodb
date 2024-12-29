@@ -49,6 +49,15 @@ const useGetLinksStyle = () => {
   }
 }
 
+function AuthAndTheme() {
+  return (
+    <div className='flex items-center gap-x-2'>
+      <ThemeToggle />
+      <AuthButton />
+    </div>
+  )
+}
+
 function MobileMenu() {
   const getLinkStyle = useGetLinksStyle()
   const [isOpen, setIsOpen] = useState(false)
@@ -94,10 +103,7 @@ function MobileMenu() {
                 />
               )}
             />
-            <div className='flex items-center gap-x-2'>
-              <ThemeToggle />
-              <AuthButton />
-            </div>
+            <AuthAndTheme />
           </div>
         </DialogContent>
       </Dialog>
@@ -108,21 +114,24 @@ function MobileMenu() {
 function DesktopMenu() {
   const getLinkStyle = useGetLinksStyle()
   return (
-    <div className='space-x-3 hidden md:inline-block'>
-      <Link className='font-bold w-16 h-auto' href={'/'}>
-        NEXT.JS
-      </Link>
-      <RenderList
-        data={NAVBAR_LINKS}
-        render={link => (
-          <Link
-            key={'desktop' + link.href}
-            className={getLinkStyle(link.href)}
-            {...link}
-          />
-        )}
-      />
-    </div>
+    <>
+      <div className='space-x-3 hidden md:inline-block'>
+        <Link className='font-bold w-16 h-auto' href={'/'}>
+          NEXT.JS
+        </Link>
+        <RenderList
+          data={NAVBAR_LINKS}
+          render={link => (
+            <Link
+              key={'desktop' + link.href}
+              className={getLinkStyle(link.href)}
+              {...link}
+            />
+          )}
+        />
+      </div>
+      <AuthAndTheme />
+    </>
   )
 }
 
@@ -132,10 +141,6 @@ export default function Navbar() {
       <div className='max-w-screen-2xl mx-auto flex items-center h-full justify-between py-2 px-6 md:px-8'>
         <MobileMenu />
         <DesktopMenu />
-        <div className='flex items-center gap-x-2'>
-          <ThemeToggle />
-          <AuthButton />
-        </div>
       </div>
     </header>
   )
