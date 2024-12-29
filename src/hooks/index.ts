@@ -23,6 +23,7 @@ export function useUser() {
 
 export function usePreferences() {
   return useFetch<Types.Preferences>('/preferences', {
+    maxCacheAge: '15 sec',
     id: 'Preferences'
   })
 }

@@ -7,9 +7,9 @@ import { AuthProvider, Navbar, ThemeProvider } from '@/components/layout'
 
 import { AtomicState } from 'atomic-utils'
 import { FetchConfig } from 'atomic-utils'
-import { getServerSession, Session } from 'next-auth'
-import { prisma } from '@/lib/prisma'
+import { getServerSession } from 'next-auth'
 import { getUserPreferences } from '@/lib/preferences'
+import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -20,6 +20,8 @@ export default async function MainLayout({ children }) {
   const session = await getServerSession()
 
   const preferences = await getUserPreferences()
+
+  const serverTheme = (await cookies()).get('theme')?.value ?? 'system'
 
   return (
     <html suppressHydrationWarning>
@@ -32,7 +34,11 @@ export default async function MainLayout({ children }) {
         <ThemeProvider attribute='class'>
           <main className='min-h-screen'>
             <AuthProvider>
-              <AtomicState>
+              <AtomicState
+                value={{
+                  'server-theme': serverTheme
+                }}
+              >
                 <FetchConfig
                   baseUrl='/api'
                   value={{

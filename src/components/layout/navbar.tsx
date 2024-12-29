@@ -5,6 +5,7 @@ import { ThemeToggle, AuthButton } from '@/components/layout'
 import {
   Button,
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogTitle,
@@ -62,7 +63,15 @@ function MobileMenu() {
             <Icon name='list' className='text-lg' />
           </Button>
         </DialogTrigger>
-        <DialogContent className='h-full max-w-screen w-screen dark:bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60 rounded-none'>
+        <DialogContent
+          className='h-full max-w-screen w-screen dark:bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60 rounded-none'
+          hideCloseButton
+        >
+          <DialogClose className='absolute left-6 top-3' asChild>
+            <Button size='icon' variant='ghost' className='rounded-full'>
+              <Icon name='x' className='text-lg' />
+            </Button>
+          </DialogClose>
           <DialogTitle className='h-0 hidden'></DialogTitle>
           <DialogDescription className='h-0 hidden'></DialogDescription>
           <div className='flex flex-col items-center pt-16 gap-y-6'>
@@ -85,7 +94,10 @@ function MobileMenu() {
                 />
               )}
             />
-            <AuthButton />
+            <div className='flex items-center gap-x-2'>
+              <ThemeToggle />
+              <AuthButton />
+            </div>
           </div>
         </DialogContent>
       </Dialog>
@@ -121,8 +133,8 @@ export default function Navbar() {
         <MobileMenu />
         <DesktopMenu />
         <div className='flex items-center gap-x-2'>
-          <AuthButton />
           <ThemeToggle />
+          <AuthButton />
         </div>
       </div>
     </header>
