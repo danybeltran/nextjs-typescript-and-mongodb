@@ -6,10 +6,16 @@ import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
 import Cookies from 'js-cookie'
-import { BrowserOnly } from 'atomic-utils'
+import { create } from 'atomic-utils'
+
+const useServerTheme = create<string>({
+  key: 'server-theme'
+})
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme()
+  const [serverTheme] = useServerTheme()
+
+  const { setTheme, theme = serverTheme } = useTheme()
 
   const nextTheme: any = {
     light: 'dark',
@@ -22,7 +28,7 @@ export function ThemeToggle() {
     light: LuSun,
     dark: LuMoon,
     system: LuMonitor
-  }[theme!] as IconType
+  }[theme] as IconType
 
   return (
     <Button
@@ -36,9 +42,9 @@ export function ThemeToggle() {
         setTheme(newTheme)
       }}
     >
-      <BrowserOnly>
-        <ThemeIcon className='text-xl' suppressHydrationWarning />
-      </BrowserOnly>
+      {/* <BrowserOnly> */}
+      <ThemeIcon className='text-xl' />
+      {/* </BrowserOnly> */}
       <span className='sr-only'>Toggle theme</span>
     </Button>
   )
