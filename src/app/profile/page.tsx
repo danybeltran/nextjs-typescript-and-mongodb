@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui'
 import SigninDialog from '@/components/layout/signin-dialog'
 import { revalidate } from 'atomic-utils'
+import UpdateProfile from './update-profile'
 
 export default function ProfilePage() {
   const { data: user } = useUser()
@@ -34,10 +35,18 @@ export default function ProfilePage() {
           alt=''
           className='rounded'
         />
-        <h2 className='font-semibold'>Info</h2>
-        <p>Name: {preferences.user_fullname}</p>
-        <p>Email: {preferences.user_email}</p>
+        <p>
+          <b>Name</b>: {preferences.user_fullname}
+        </p>
+        <p>
+          <b>Email</b>: {preferences.user_email}
+        </p>
+        <div>
+          <b>Bio</b>: <br />
+          <p className='whitespace-pre-line'>{preferences.user_description}</p>
+        </div>
       </section>
+      <UpdateProfile />
       <section>
         <p className='font-semibold'>Raw data</p>
         <pre>{JSON.stringify({ user, preferences }, null, 2)}</pre>

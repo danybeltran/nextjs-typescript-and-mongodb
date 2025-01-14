@@ -1,5 +1,5 @@
 'use client'
-import { useMutation } from 'atomic-utils'
+import { useServerAction } from 'atomic-utils'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -15,8 +15,7 @@ import {
   AlertDialogTrigger,
   Button
 } from '@/components/ui'
-
-import { deletePost } from '@/actions/post'
+import { deletePost } from '@/app/posts/actions'
 
 interface Props {
   postId: string
@@ -25,7 +24,7 @@ interface Props {
 export default function PostDeleteButton({ postId }: Props) {
   const router = useRouter()
 
-  const { reFetch, loading } = useMutation(deletePost, {
+  const { reFetch, loading } = useServerAction(deletePost, {
     params: postId,
     onResolve: () => router.replace('/posts')
   })

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
-import PostForm from '@/components/post/post-form'
+import PostForm from '@/components/post/create-post-form'
 
 export default function Create() {
   return (
