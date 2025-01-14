@@ -1,6 +1,6 @@
 'use client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from 'atomic-utils'
+import { useMutation, useServerAction } from 'atomic-utils'
 import { AlertCircle, Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
@@ -21,8 +21,8 @@ import {
   Textarea
 } from '@/components/ui'
 
-import { createPost } from '@/actions/post'
 import { postSchema } from '@/schemas'
+import { createPost } from '@/app/posts/actions'
 
 type FormSchema = z.infer<typeof postSchema>
 
@@ -40,7 +40,7 @@ export default function PostForm() {
   // To learn how to use the `useMutation` hook with server actions
   // visit https://httpr.vercel.app/docs/server_actions#server-mutations
 
-  const { refresh, loading, error } = useMutation(createPost, {
+  const { refresh, loading, error } = useServerAction(createPost, {
     params: form.getValues(),
     onResolve(data: Types.Post) {
       router.replace('/posts/' + data.id)
