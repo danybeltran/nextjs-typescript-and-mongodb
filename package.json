@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx prisma generate dev --name init && next dev",
-    "build": "npx prisma generate init && next build",
+    "dev": "npx prisma generate dev --name init && npx prisma db push && next dev",
+    "build": "npx prisma generate init && npx prisma db push && next build",
     "migrate:dev": "npx prisma generate dev --name init",
     "start": "next start"
   },
