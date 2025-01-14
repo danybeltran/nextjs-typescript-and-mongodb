@@ -12,7 +12,6 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-  Button,
   AlertDialog,
   AlertDialogContent,
   AlertDialogTitle,
@@ -22,9 +21,7 @@ import {
   AlertDialogFooter
 } from '@/components/ui'
 
-import Link from 'next/link'
 import { usePreferences, useUser } from '@/hooks'
-import { useSecondRender } from 'atomic-utils'
 import { useState } from 'react'
 import { signOut } from 'next-auth/react'
 import Icon from 'bs-icon'
