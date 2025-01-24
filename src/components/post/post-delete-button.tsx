@@ -17,15 +17,11 @@ import {
 } from '@/components/ui'
 import { deletePost } from '@/app/posts/actions'
 
-interface Props {
-  postId: string
-}
-
-export default function PostDeleteButton({ postId }: Props) {
+export default function PostDeleteButton({ postId }: { postId: string }) {
   const router = useRouter()
 
   const { reFetch, loading } = useServerAction(deletePost, {
-    params: postId,
+    params: parseInt(postId),
     onResolve: () => router.replace('/posts')
   })
 
