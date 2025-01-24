@@ -1,6 +1,6 @@
 ### A Next.js template
 
-A Next.js app that uses Shadcn, Prisma ORM, MongoDB and Next Auth
+A Next.js app that uses Shadcn, Prisma ORM, <s>MongoDB</s> PostgreSQL and Next Auth
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanybeltran%2Fnextjs-typescript-and-mongodb)
 
@@ -19,7 +19,7 @@ To update the dependencies to their latest versions, run:
 You need to pass an env. variable with the MongoDB connection string, as well as any variables required by `next-auth`:
 
 ```
-MONGO_URI=
+POSTGRE_URL=
 NEXTAUTH_SECRET=
 GOOGLE_APP_CLIENT_ID=
 GOOGLE_APP_CLIENT_SECRET=
@@ -32,6 +32,7 @@ How to get these variables?
 
 ---
 
+<!--
 - [`MONGO_URI`](https://www.mongodb.com/docs/manual/reference/connection-string/)
 
 The connection string looks something like this:
@@ -52,7 +53,7 @@ Click the Copy button next to the connection string:
 
 Replace `<password>` with the password for your user. Ensure any option params are [URL encoded](https://dochub.mongodb.org/core/atlas-url-encoding).
 
----
+--- -->
 
 - [`GOOGLE_APP_CLIENT_ID` and `GOOGLE_APP_CLIENT_SECRET`](https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid)
 

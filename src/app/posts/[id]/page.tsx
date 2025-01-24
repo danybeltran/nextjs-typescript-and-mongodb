@@ -8,7 +8,8 @@ import PostDetails from '@/components/post/post-details'
 import { prisma } from '@/lib/prisma'
 
 export async function generateMetadata(props: PostPageProps) {
-  const post = await getPost(props)
+  const params = await props.params
+  const post = await getPost(params)
 
   return {
     title: 'Post: ' + post?.title,
@@ -17,9 +18,9 @@ export async function generateMetadata(props: PostPageProps) {
 }
 
 export default async function PostDetailsPage(props: PostPageProps) {
-  const post = await getPost(props)
-
   const params = await props.params
+
+  const post = await getPost(params)
 
   return (
     <section>
@@ -45,12 +46,11 @@ export default async function PostDetailsPage(props: PostPageProps) {
   )
 }
 
-const getPost = cache(async (props: PostPageProps) => {
-  const params = await props.params
+const getPost = cache(async (params: { id: string }) => {
   try {
     return prisma.post.findFirst({
       where: {
-        id: params.id
+        id: parseInt(params.id)
       }
     })
   } catch (err) {

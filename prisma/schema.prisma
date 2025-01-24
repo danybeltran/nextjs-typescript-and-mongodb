@@ -1,6 +1,6 @@
 datasource db {
-  provider = "mongodb"
-  url      = env("MONGO_URI")
+  provider = "postgresql"
+  url      = env("POSTGRE_URL")
 }
 
 generator client {
@@ -8,14 +8,14 @@ generator client {
 }
 
 model Post {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  id      Int      @id @default(autoincrement())
   title   String
   date    DateTime @default(now())
   content String
 }
 
 model Preferences {
-  id                   String @id @default(auto()) @map("_id") @db.ObjectId
+  id                   Int    @id @default(autoincrement())
   user_email           String
   user_fullname        String
   user_profile_picture String

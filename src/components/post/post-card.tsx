@@ -12,19 +12,9 @@ import {
   Button
 } from '@/components/ui'
 import { formatDate } from '@/lib/utils'
+import { Types } from '@/types'
 
-type Post = {
-  id: string
-  title: string
-  date: Date
-  content: string
-}
-
-interface Props {
-  post: Post
-}
-
-export default function PostCard({ post }: Props) {
+export default function PostCard({ post }: { post: Types.Post }) {
   return (
     <Card>
       <CardHeader>
