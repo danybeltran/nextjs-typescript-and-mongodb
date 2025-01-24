@@ -19,16 +19,23 @@ To update the dependencies to their latest versions, run:
 You need to pass an env. variable with the MongoDB connection string, as well as any variables required by `next-auth`:
 
 ```
-POSTGRE_URL=
 NEXTAUTH_SECRET=
 GOOGLE_APP_CLIENT_ID=
 GOOGLE_APP_CLIENT_SECRET=
 NEXTAUTH_URL=http://localhost:3000
+# Connect to Supabase via connection pooling with Supavisor.
+DATABASE_URL=
+# Direct connection to the database. Used for migrations.
+DIRECT_URL=
 ```
 
 (You don't need `NEXTAUTH_URL` if you are deploying to Vercel)
 
 How to get these variables?
+
+---
+
+`DATABASE_URL` and `DIRECT_URL`: Visit the [Supabase documentation](https://supabase.com/partners/integrations/prisma)
 
 ---
 
