@@ -29,7 +29,7 @@ export async function createPost(post: any) {
   }
 }
 
-export async function deletePost(id: string) {
+export async function deletePost(id: number) {
   try {
     const deletedPost = await prisma.post.delete({
       where: {
