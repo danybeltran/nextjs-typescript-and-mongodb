@@ -30,10 +30,10 @@ export default async function PostDetailsPage(props: PostPageProps) {
       </Link>
       {post ? (
         <div className='max-w-4xl gap-2 mt-4 mx-auto flex flex-col lg:flex-row'>
-          <div className='flex-[10]'>
+          <div className='flex-10'>
             <PostDetails post={post} />
           </div>
-          <div className='flex-[2] flex justify-center'>
+          <div className='flex-2 flex justify-center'>
             <PostDeleteButton postId={params.id} />
           </div>
         </div>
