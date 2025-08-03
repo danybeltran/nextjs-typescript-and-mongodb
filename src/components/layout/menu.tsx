@@ -44,7 +44,7 @@ export default function Menu() {
             </DialogTrigger>
             <DialogContent
               className='h-full max-w-screen w-screen dark:bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60 rounded-none'
-              hideCloseButton
+              showCloseButton={false}
             >
               <DialogClose className='absolute left-6 top-3' asChild>
                 <Button size='icon' variant='ghost' className='rounded-full'>
