@@ -47,7 +47,7 @@ export default async function MainLayout({ children }) {
                   }}
                 >
                   <Navbar />
-                  <div className='max-w-screen-2xl mx-auto py-8 px-6 md:px-8 overflow-x-auto'>
+                  <div className='max-w-(--breakpoint-2xl) mx-auto py-8 px-6 md:px-8 overflow-x-auto'>
                     {children}
                   </div>
                 </FetchConfig>

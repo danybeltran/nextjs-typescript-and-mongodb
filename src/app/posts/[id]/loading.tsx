@@ -10,7 +10,7 @@ export default function PostIdLoading() {
         Back
       </div>
       <div className='max-w-4xl gap-2 mt-4 mx-auto flex flex-col lg:flex-row'>
-        <section className='flex-[10]'>
+        <section className='flex-10'>
           <header>
             <div>
               <Skeleton className='w-full h-6' />
@@ -34,7 +34,7 @@ export default function PostIdLoading() {
             <Skeleton className='w-3/4 h-6' />
           </article>
         </section>
-        <div className='flex-[2] flex justify-center h-fit'>
+        <div className='flex-2 flex justify-center h-fit'>
           <Skeleton className='w-80 h-10 lg:w-full rounded-md' />
         </div>
       </div>
